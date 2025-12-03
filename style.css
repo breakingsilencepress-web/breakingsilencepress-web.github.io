@@ -78,20 +78,29 @@ header {
 
 .header-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
     padding: .4rem;
 }
 
-.logo {
+.logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.logo-img{
+    max-width: 7%;
+}
+
+.logo-text{
     font-size: 1.6rem;
     font-weight: bold;
     color: var(--primary-color);
     cursor: pointer;
-    margin-left: -60px;
 }
 
 .logo span {
@@ -110,7 +119,8 @@ header {
     border: 2px solid #333;
     display: flex;
     align-items: center;
-    transform: scale(0.6) rotate(90deg);
+    transform: scale(1);
+    margin-top: 1rem;
 }
 
 .theme-toggle i {
@@ -125,10 +135,9 @@ header {
 
 .theme-toggle .fa-moon { 
     left: 10px; 
-    top: 7px;
+    top: 15px;
     color: var(--background);
     opacity: 1;
-    transform: rotate(280deg);
 }
 
 .theme-toggle .fa-sun { 
