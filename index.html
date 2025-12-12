@@ -54,7 +54,7 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="Assets/Logo.png" class="logo-img" alt="logo img">
+                <img src="Assets/Logo-white.png" class="logo-img" alt="logo img" id="logo-img">
                 <div class="logo-text">BREAKING<span>SILENCE</span></div>
             </div>
             <nav aria-label="Main navigation">
@@ -76,11 +76,13 @@
     <main id="main-content">
         <section class="hero" id="home">
             <div class="hero-content">
-                <h1>THE SECRET PATENT FINALLY REVEALED</h1>
-                <p>For years, this invention was hidden under a U.S. secrecy order — blocked from publication, blocked from foreign filing, and blocked from public knowledge.</p>
-                <p>Now discover the untold story behind Patent US 8,925,438 B1</p>
+                <h1>INSIDE AMERICA’S SECRECY MACHINE</h1>
+                <p>For decades, the U.S. secrecy system has hidden breakthrough technologies, blocked patents, and erased inventions from the public record.</p>
+                <p><strong>Breaking Silence</strong> reveals this larger pattern — built from multiple real patents, declassified data, foreign secrecy laws, and documented cases of suppressed innovation.</p>
+                <p>Discover how the system works.
+                <br>See the evidence they never meant to be found.</p>
                 <div class="hero-buttons">
-                    <a href="#purchase" class="btn">Pre-Order Now</a>
+                    <a href="#purchase" class="btn">Download Chapter 1 Free</a>
                     <a href="#patent" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
@@ -179,41 +181,54 @@
                     <h2>Timeline of Secrecy</h2>
                 </div>
                 <div class="timeline-container">
-                    <div class="timeline-item">
+                    <!-- Timeline items with alternating sides -->
+                    <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h3>Invention Conceived</h3>
-                            <p>Budimir and Desanka Damnjanovic develop the concept for a fluid-based infrared countermeasure system.</p>
+                            <h3>2005</h3>
+                            <div class="timeline-dot"></div>
+                            <h4>Invention Conceived</h4>
+                            <p>Budimir and Desanka Dannjanovic develop the concept for a fluid-based infrared countermeasure system — a technology that could protect military aircraft from heat-seeking missiles.</p>
                         </div>
-                        <div class="timeline-year">2005</div>
                     </div>
-                    <div class="timeline-item">
+                    
+                    <div class="timeline-item right">
                         <div class="timeline-content">
-                            <h3>Patent Filed</h3>
-                            <p>The inventors file their patent application with the U.S. Patent and Trademark Office.</p>
+                            <h3>2007</h3>
+                            <div class="timeline-dot"></div>
+                            <h4>Patent Filed</h4>
+                            <p>The inventors file their patent application with the U.S. Patent and Trademark Office, seeking legal protection for their innovative defense technology.</p>
                         </div>
-                        <div class="timeline-year">2007</div>
                     </div>
-                    <div class="timeline-item">
+                    
+                    <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h3>Secrecy Order Issued</h3>
-                            <p>The U.S. government places a secrecy order on the patent, preventing its publication.</p>
+                            <h3>2008</h3>
+                            <div class="timeline-dot"></div>
+                            <h4>Secrecy Order Issued</h4>
+                            <p>The U.S. government places a secrecy order on the patent, preventing its publication under the Invention Secrecy Act. The technology is deemed critical to national security.</p>
                         </div>
-                        <div class="timeline-year">2008</div>
                     </div>
-                    <div class="timeline-item">
+                    
+                    <div class="timeline-item right">
                         <div class="timeline-content">
-                            <h3>Secrecy Lifted</h3>
-                            <p>After years of classification, the secrecy order is finally lifted.</p>
+                            <h3>2014</h3>
+                            <div class="timeline-dot"></div>
+                            <h4>Secrecy Lifted</h4>
+                            <p>After years of classification, the secrecy order is finally lifted, allowing the patent to proceed through the normal publication process.</p>
                         </div>
-                        <div class="timeline-year">2014</div>
                     </div>
-                    <div class="timeline-item">
+                    
+                    <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h3>Patent Published</h3>
-                            <p>Patent US 8,925,438 B1 is finally published and made available to the public.</p>
+                            <h3>2015</h3>
+                            <div class="timeline-dot"></div>
+                            <h4>Patent Published</h4>
+                            <p>Patent US 8,925,438 B1 is finally published and made available to the public after being classified for years.</p>
                         </div>
-                        <div class="timeline-year">2015</div>
                     </div>
+                    
+                    <!-- Timeline center line -->
+                    <div class="timeline-line"></div>
                 </div>
             </div>
         </section>
@@ -475,8 +490,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
