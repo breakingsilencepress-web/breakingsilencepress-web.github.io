@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR 1.5 — Document Evidence</title>
+    <link rel="stylesheet" href="/assets/css/evidence.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        h1, h2 { color: #2A2A2A; }
+        .metadata, .context, .provenance, .verification { margin-bottom: 30px; }
+        iframe { width: 100%; height: 600px; border: 1px solid #ccc; }
+        .download-btn { 
+            display: inline-block; 
+            margin-top: 10px; 
+            padding: 10px 15px; 
+            background-color: #D9782A; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .document-access p { color: #666; }
+        .context ul { padding-left: 20px; }
+        .context li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>QR 1.5 — Document Evidence</h1>
+
+<div class="metadata">
+    <h2>Verification Metadata</h2>
+    <ul>
+        <li><strong>Document title:</strong> Lag (1971:1078) om försvarsuppfinningar — Swedish Defence Inventions Act</li>
+        <li><strong> Issuing Authority / Court / Agency:</strong> Swedish Government / Justitiedepartementet (Ministry of Justice)</li>
+        <li><strong> Original date:</strong> December 17, 1971 (Amended through SFS 2016:195)</li>
+        <li><strong> Legal status:</strong> Current; amended and in force, governs secrecy, patenting, and control of military-relevant inventions in Sweden.</li>
+        <li><strong>Original Source Institution:</strong> Regeringskansliet / Lagrummet.se</li>
+    </ul>
+</div>
+
+<div class="context">
+    <h2>Context</h2>
+    <p>The Swedish Defence Inventions Act establishes legal control over inventions related to military materiel ("försvarsuppfinningar"). Key provisions include:</p>
+    
+    <ul>
+        <li><strong>Definitions and Scope (§1–4):</strong> Covers inventions that pertain to war materiel. Swedish-origin or resident-owned inventions may not be publicly disclosed until reviewed for secrecy.</li>
+        
+        <li><strong>Review Authorities (§2–3, §5–6):</strong> Försvarets materielverk (FMV) evaluates patent applications for secrecy; the Granskningsnämnden makes final decisions.</li>
+        
+        <li><strong>Secrecy and Control (§6–18):</strong> Provides timelines for determining secrecy; allows government intervention for state use; includes procedures for foreign-origin inventions with Swedish relevance.</li>
+        
+        <li><strong>Legal Consequences (§19–24):</strong> Enforces confidentiality obligations, sets penalties for violations, and specifies appeal routes (government and Patent & Market Court).</li>
+        
+        <li><strong>Compensation:</strong> Inventors are entitled to reasonable remuneration if secrecy restrictions or government takeover affect the invention (§14, §16).</li>
+        
+        <li><strong>Transitional Provisions:</strong> Updates and amendments maintain continuity for ongoing patent cases and court proceedings (1993:1407, 2016:195).</li>
+    </ul>
+    
+    <p><strong>Significance:</strong><br>
+    This law codifies a formal mechanism to classify, control, and withhold sensitive technological knowledge in Sweden, paralleling the U.S. "Invention Secrecy Act" model. It is critical in tracing institutional suppression of dual-use or transformative technologies, particularly in national defense contexts.</p>
+</div>
+
+<div class="document-access">
+    <h2>Document Access</h2>
+ 
+    <iframe src="\Users\Awami\Contacts\Desktop\Breaking Silence Website\Documents\se144sv QR 1.5.pdf" title="PDF Document"></iframe>
+    
+    <br>
+    <button onclick="downloadPDF()" class="download-btn">Download PDF</button>
+    <p>File size: 168 KB</p>
+</div>
+
+<div class="provenance">
+    <h2>Provenance & Integrity Note</h2>
+    <p>This document is reproduced in full from an official source. No alterations have been made. It is hosted solely for preservation and verification purposes.</p>
+</div>
+
+<div class="verification">
+    <h2>Verification Timestamp</h2>
+    <p>Last verified: December 25, 2025</p>
+</div>
+
+<script>
+function downloadPDF() {
+    const pdfUrl = '/Documents/se144sv QR 1.5.pdf';
+    const filename = 'Opinion_and_Order_2015-09-22.pdf';
+
+    
+    try {
+        // Create a temporary anchor element
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = filename;
+        
+        // Append to body, click, and remove
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        console.log('Download initiated for:', filename);
+    } catch (error) {
+        console.error('Error downloading PDF:', error);
+        alert('Error downloading the PDF. Please check the console for details.');
+    }
+}
+</script>
+
+</body>
+</html>

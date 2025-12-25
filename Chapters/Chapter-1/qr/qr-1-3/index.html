@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR 1.3 — Document Evidence</title>
+    <link rel="stylesheet" href="/assets/css/evidence.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        h1, h2 { color: #2A2A2A; }
+        .metadata, .context, .provenance, .verification { margin-bottom: 30px; }
+        iframe { width: 100%; height: 600px; border: 1px solid #ccc; }
+        .download-btn { 
+            display: inline-block; 
+            margin-top: 10px; 
+            padding: 10px 15px; 
+            background-color: #D9782A; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .document-access p { color: #666; }
+
+    </style>
+</head>
+<body>
+
+<h1>QR 1.3 — Document Evidence</h1>
+
+<div class="metadata">
+    <h2>Verification Metadata</h2>
+    <ul>
+        <li><strong>Document title:</strong> Countermeasure Technique Using an Appropriate Fluid Spray Against Infrared Heat Seeking Missile (US 8,925,438 B1)</li>
+        <li><strong> Issuing Authority / Court / Agency:</strong> United States Patent and Trademark Office (USPTO)</li>
+        <li><strong> Original date:</strong> January 6, 2015 (Filed July 28, 2007)</li>
+        <li><strong> Legal status:</strong> Granted U.S. patent; enforceable under U.S. patent law. Patent term adjusted under 35 U.S.C. § 154(b) by 2,167 days.</li>
+        <li><strong>Original Source Institution:</strong> United States Patent and Trademark Office (USPTO)</li>
+    </ul>
+</div>
+
+<div class="context">
+    <h2>Context</h2>
+    <p>This patent discloses a defensive aircraft countermeasure that neutralizes infrared heat-seeking missiles by dispersing a high‑pressure fluid spray into the exhaust plume, degrading the missile’s infrared guidance system. It demonstrates that non‑explosive, non‑kinetic technologies capable of significantly altering military and civilian aircraft survivability were technically feasible and formally documented. In Chapter 1, this patent supports the claim that transformative defensive innovations—particularly those intersecting with national security—exist within the patent system and are subject to heightened scrutiny, secrecy regimes, or constrained deployment despite their civilian safety implications.</p>
+</div>
+
+<div class="document-access">
+    <h2>Document Access</h2>
+ 
+    <iframe src="\Users\Awami\Contacts\Desktop\Breaking Silence Website\Documents\US8925438 ch 1-1.3.pdf" title="PDF Document"></iframe>
+    
+    <br>
+    <button onclick="downloadPDF()" class="download-btn">Download PDF</button>
+    <p>File size: 412 KB</p>
+</div>
+
+<div class="provenance">
+    <h2>Provenance & Integrity Note</h2>
+    <p>This document is reproduced in full from an official source. No alterations have been made. It is hosted solely for preservation and verification purposes.</p>
+</div>
+
+<div class="verification">
+    <h2>Verification Timestamp</h2>
+    <p>Last verified: December 25, 2025</p>
+</div>
+
+<script>
+function downloadPDF() {
+    const pdfUrl = '/Documents/US8925438 ch 1-1.3.pdf';
+    const filename = 'Opinion_and_Order_2015-09-22.pdf';
+
+    
+    try {
+        // Create a temporary anchor element
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = filename;
+        
+        // Append to body, click, and remove
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        console.log('Download initiated for:', filename);
+    } catch (error) {
+        console.error('Error downloading PDF:', error);
+        alert('Error downloading the PDF. Please check the console for details.');
+    }
+}
+</script>
+
+</body>
+</html>

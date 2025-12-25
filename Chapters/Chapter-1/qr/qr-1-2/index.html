@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR 1.2 — Document Evidence</title>
+    <link rel="stylesheet" href="/assets/css/evidence.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        h1, h2 { color: #2A2A2A; }
+        .metadata, .context, .provenance, .verification { margin-bottom: 30px; }
+        iframe { width: 100%; height: 600px; border: 1px solid #ccc; }
+        .download-btn { 
+            display: inline-block; 
+            margin-top: 10px; 
+            padding: 10px 15px; 
+            background-color: #D9782A; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .document-access p { color: #666; }
+
+    </style>
+</head>
+<body>
+
+<h1>QR 1.2 — Document Evidence</h1>
+
+<div class="metadata">
+    <h2>Verification Metadata</h2>
+    <ul>
+        <li><strong>Document title:</strong> Title 35 U.S. Code – Patents, Chapter 17: Secrecy of Certain Inventions and Filing Applications in Foreign Country; Regulations Relating to Secrecy Orders and Licenses</li>
+        <li><strong>Issuing Authority / Court / Agency:</strong> United States Patent and Trademark Office (USPTO), under the authority of 35 U.S.C. §§ 6, 181–188</li>
+        <li><strong>Original date:</strong> As amended to December 31, 1960</li>
+        <li><strong>Legal status:</strong> Active federal regulations at the time; enforceable under U.S. patent law for national security purposes</li>
+        <li><strong>Original source institution:</strong> United States Government, Code of Federal Regulations, Title 37, Part 5</li>
+    </ul>
+</div>
+
+<div class="context">
+    <h2>Context</h2>
+    <p>This document establishes the legal framework allowing the U.S. government to issue secrecy orders on patent applications that might harm national security. It defines procedures for inspection, secrecy orders, appeals, and foreign filing licenses, and sets out responsibilities for inventors and their assignees. It directly supports Chapter 1’s claim regarding systemic suppression of transformative inventions through government secrecy orders, demonstrating how legal mechanisms can prevent public disclosure of potentially disruptive technologies.</p>
+</div>
+
+<div class="document-access">
+    <h2>Document Access</h2>
+ 
+    <iframe src="\Users\Awami\Contacts\Desktop\Breaking Silence Website\Documents\service-ll-uscode-Qr 1.2.pdf" title="PDF Document"></iframe>
+    
+    <br>
+    <button onclick="downloadPDF()" class="download-btn">Download PDF</button>
+    <p>File size: 112 KB</p>
+</div>
+
+<div class="provenance">
+    <h2>Provenance & Integrity Note</h2>
+    <p>This document is reproduced in full from an official source. No alterations have been made. It is hosted solely for preservation and verification purposes.</p>
+</div>
+
+<div class="verification">
+    <h2>Verification Timestamp</h2>
+    <p>Last verified: December 25, 2025</p>
+</div>
+
+<script>
+function downloadPDF() {
+    const pdfUrl = '/Documents/service-ll-uscode-Qr 1.2.pdf';
+    const filename = 'Opinion_and_Order_2015-09-22.pdf';
+
+    
+    try {
+        // Create a temporary anchor element
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = filename;
+        
+        // Append to body, click, and remove
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        console.log('Download initiated for:', filename);
+    } catch (error) {
+        console.error('Error downloading PDF:', error);
+        alert('Error downloading the PDF. Please check the console for details.');
+    }
+}
+</script>
+
+</body>
+</html>

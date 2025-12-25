@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR 1.1 — Document Evidence</title>
+    <link rel="stylesheet" href="/assets/css/evidence.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        h1, h2 { color: #2A2A2A; }
+        .metadata, .context, .provenance, .verification { margin-bottom: 30px; }
+        iframe { width: 100%; height: 600px; border: 1px solid #ccc; }
+        .download-btn { 
+            display: inline-block; 
+            margin-top: 10px; 
+            padding: 10px 15px; 
+            background-color: #D9782A; 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .document-access p { color: #666; }
+
+    </style>
+</head>
+<body>
+
+<h1>QR 1.1 — Document Evidence</h1>
+
+<div class="metadata">
+    <h2>Verification Metadata</h2>
+    <ul>
+        <li><strong>Document title:</strong> Opinion and Order Granting in Part and Denying in Part Defendants' Motion to Dismiss</li>
+        <li><strong>Issuing Authority / Court / Agency:</strong> United States District Court<br>
+        Eastern District of Michigan, Southern Division<br>
+        Honorable Linda V. Parker, United States District Judge</li>
+        <li><strong>Original date:</strong> September 22, 2015</li>
+        <li><strong>Legal status:</strong> Final federal district court opinion and order.<br>
+        Counts Two, Three, and Four were dismissed with prejudice.<br>
+        Count One, the claim for just compensation under the Invention Secrecy Act, was allowed to proceed.</li>
+        <li><strong>Original source institution:</strong> United States Federal Judiciary<br>
+        Filed through the federal court electronic docket system</li>
+    </ul>
+</div>
+
+<div class="context">
+    <h2>Context</h2>
+    <p>This judicial opinion confirms that government imposed patent secrecy orders can plausibly cause real economic harm to inventors, including loss of commercialization opportunities, foreign filing rights, and market access. Although the court rejected constitutional and equitable challenges, it explicitly allowed the inventors' statutory compensation claim to move forward. This document supports Chapter One's central claim that secrecy mechanisms function as instruments of suppression while remaining largely shielded from constitutional accountability.</p>
+</div>
+
+<div class="document-access">
+    <h2>Document Access</h2>
+ 
+    <iframe src="\Users\Awami\Contacts\Desktop\Breaking Silence Website\Documents\w1.1 USCOURTS-mied-4_14-cv-11920-0.pdf" title="PDF Document"></iframe>
+    
+    <br>
+    <button onclick="downloadPDF()" class="download-btn">Download PDF</button>
+    <p>File size: 160 KB</p>
+</div>
+
+<div class="provenance">
+    <h2>Provenance & Integrity Note</h2>
+    <p>This document is reproduced in full from an official source. No alterations have been made. It is hosted solely for preservation and verification purposes.</p>
+</div>
+
+<div class="verification">
+    <h2>Verification Timestamp</h2>
+    <p>Last verified: December 25, 2025</p>
+</div>
+
+<script>
+function downloadPDF() {
+    const pdfUrl = '/Documents/w1.1 USCOURTS-mied-4_14-cv-11920-0.pdf';
+    const filename = 'Opinion_and_Order_2015-09-22.pdf';
+
+    
+    try {
+        // Create a temporary anchor element
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = filename;
+        
+        // Append to body, click, and remove
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        console.log('Download initiated for:', filename);
+    } catch (error) {
+        console.error('Error downloading PDF:', error);
+        alert('Error downloading the PDF. Please check the console for details.');
+    }
+}
+</script>
+
+</body>
+</html>
