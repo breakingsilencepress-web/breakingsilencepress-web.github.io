@@ -319,7 +319,7 @@
                         </ul>
                         <p class="sample-description">This 16-page sample reveals how multiple inventors across different technologies faced the same challenge: creating groundbreaking innovations only to have them classified by the U.S. government.</p>
                         <div class="download-action">
-                            <a id="sample-download" class="btn btn-download" download>
+                            <a id="sample-download" class="btn btn-download" onclick="downloadPDF()" download>
                                 <i class="fas fa-download" aria-hidden="true"></i> Download Free Sample (PDF)
                             </a>
                             <p class="file-info">📄 16 pages • 2.3 MB • Instant Access</p>
@@ -442,6 +442,31 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        function downloadPDF() {
+            const pdfUrl = '/Documents/chapter-1.pdf';
+            const filename = 'chapter-1.pdf';
+            
+            
+            try {
+                // Create a temporary anchor element
+                const link = document.createElement('a');
+                link.href = pdfUrl;
+                link.download = filename;
+                
+                // Append to body, click, and remove
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                console.log('Download initiated for:', filename);
+            } catch (error) {
+                console.error('Error downloading PDF:', error);
+                alert('Error downloading the PDF. Please check the console for details.');
+            }
+        }
+    </script>
 </body>
 </html>
+
 
