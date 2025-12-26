@@ -291,7 +291,6 @@ html.light .page-header {
     font-size: 1.1rem;
 }
 
-/* Documents Grid */
 .documents-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -299,7 +298,6 @@ html.light .page-header {
     margin-top: var(--spacing-lg);
 }
 
-/* Document Card */
 .document-card {
     background: var(--card-bg);
     border-radius: 10px;
@@ -361,21 +359,21 @@ html.light .page-header {
     transform: translateY(-2px);
 }
 
-.tag.classified {
+.tag.confidential {
     background: rgba(255, 0, 0, 0.15);
-    color: #ff6b6b;
+    color: #E74C3C;
     border: 1px solid rgba(255, 0, 0, 0.3);
 }
 
-.tag.declassified {
+.tag.technical {
     background: rgba(0, 255, 0, 0.15);
-    color: #6bff6b;
+    color: #27AE60;
     border: 1px solid rgba(0, 255, 0, 0.3);
 }
 
-.tag.patent {
+.tag.official {
     background: rgba(42, 61, 120, 0.2);
-    color: #6b8cff;
+    color: #3498DB;
     border: 1px solid rgba(42, 61, 120, 0.3);
 }
 
