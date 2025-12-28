@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy - Breaking Silence - Our commitment to transparency in data handling">
+    <title>Privacy Policy - Breaking Silence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #D9782A;
+            --primary-hover: #e08b3a;
+            --secondary-color: #2A3D78;
+            --secondary-hover: #39529e;
+            --iconBackground: #fff;
+            --background: #111111;
+            --grey: #222;
+            --text: #fff;
+            --card-bg: #1a1a1a;
+            --grey-mid: #333;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 1rem;
+            --spacing-xl: 5rem;
+        }
+
+        html.light {
+            --background: #f5f5f5;
+            --iconBackground: #a8a8a8;
+            --grey: #222;
+            --text: #111111;
+            --card-bg: #ffffff;
+            --primary-color: #D9782A;
+            --primary-hover: #e08b3a;
+            --grey: #e0e0e0;
+            --grey-mid: #757575;
+        }
+
+        html.light header {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: var(--spacing-md) 0;
+        }
+
+        header {
+            background-color: rgba(17, 17, 17, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            padding: .4rem;
+        }
+
+        .logo{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .logo-img{
+            max-width: 7%;
+        }
+
+        .logo-text{
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: var(--spacing-lg);
+        }
+
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: var(--spacing-xs) 0;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            color: var(--primary-color);
+            outline: none;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a:focus::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: var(--spacing-xs);
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .mobile-menu:hover,
+        .mobile-menu:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            outline: 2px solid var(--primary-color);
+        }
+
+        /* Privacy Policy Main Content */
+        .policy-container {
+            max-width: 1000px;
+            margin: 7rem auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .policy-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .policy-header h1 {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .policy-header h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: #666666;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .policy-section {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .policy-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--grey-mid);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem 0;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .policy-content {
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .policy-content p {
+            margin-bottom: 1.2rem;
+        }
+
+        .policy-content ul {
+            margin: 1.2rem 0 1.2rem 2rem;
+            list-style-type: none;
+        }
+
+        .policy-content ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .policy-content ul li:before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(145deg, rgba(42, 61, 120, 0.15), rgba(20, 30, 60, 0.25));
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.8rem;
+            margin: 1.8rem 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box ul {
+            margin: 1rem 0 0 2rem;
+        }
+
+        .highlight-box ul li:before {
+            color: var(--secondary-color);
+        }
+
+        .commitment-statement {
+            text-align: center;
+            font-style: italic;
+            margin: 4rem 0;
+            padding: 3rem;
+            border-top: 2px solid var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--text);
+            font-size: 1.2rem;
+            background: rgba(217, 120, 42, 0.05);
+            border-radius: 10px;
+        }
+
+        /* Footer - Identical to original */
+        footer {
+            background-color: var(--background);
+            padding: var(--spacing-lg) 0 1.5rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: var(--spacing-md);
+            margin-bottom: 2rem;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-column h3 span{
+            color: var(--secondary-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-column ul li a {
+            color: #666666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover,
+        .footer-column ul li a:focus {
+            color: var(--primary-color);
+            outline: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--grey-mid);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover,
+        .social-links a:focus {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .copyright a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .copyright a:hover {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            position: relative;
+            width: 62px;
+            height: 34px;
+            background: #222;
+            border-radius: 50px;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: inset 0 3px 8px rgba(0,0,0,0.7), 0 0 10px #5c5a5a;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            transform: scale(1);
+            margin-top: 2rem;
+        }
+
+        .theme-toggle i {
+            position: absolute;
+            font-size: 1.1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.4s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .theme-toggle .fa-moon { 
+            left: 9px; 
+            top: 15px;
+            color: var(--background);
+            opacity: 1;
+        }
+
+        .theme-toggle .fa-sun { 
+            right: 9px; 
+            color: #D9782A;
+            opacity: 0; 
+            transform: translateY(-50%) scale(0.8); 
+        }
+
+        .theme-toggle .toggle-circle {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            background: #D9782A;
+            border-radius: 50%;
+            left: 4px;
+            top: 2px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
+        html.light .theme-toggle {
+            background: #e8e8e8;
+            border-color: #ccc;
+        }
+
+        html.light .theme-toggle .fa-moon { opacity: 0; transform: translateY(-50%) scale(0.8); }
+        html.light .theme-toggle .fa-sun  { opacity: 1; transform: translateY(-50%) scale(1); }
+        html.light .theme-toggle .toggle-circle {
+            transform: translateX(24px);
+            background: #222;
+        }
+
+        .theme-toggle:hover .toggle-circle {
+            box-shadow: 0 0 16px rgba(217, 120, 42, 0.8);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 950px) {
+            .policy-container {
+                margin: 6rem auto 3rem;
+                padding: 0 1.5rem;
+            }
+
+            .policy-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .policy-section {
+                padding: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                padding: var(--spacing-sm) 0;
+                text-align: center;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(10px);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: var(--spacing-sm) 0;
+                border-bottom: 1px solid #333;
+                font-size: 1.1rem;
+            }
+
+            nav ul li:last-child a {
+                border-bottom: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .policy-container {
+                margin: 5rem auto 2rem;
+                padding: 0 1rem;
+            }
+
+            .policy-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .policy-section {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: var(--spacing-lg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .policy-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .policy-section {
+                padding: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .highlight-box {
+                padding: 1.2rem;
+            }
+
+            .commitment-statement {
+                padding: 2rem 1rem;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Identical to original -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="Assets/Logo-white.png" class="logo-img" alt="Breaking Silence Logo" id="logo-img">
+                <div class="logo-text">BREAKING<span>SILENCE</span></div>
+            </div>
+            <nav aria-label="Main navigation">
+                <div class="mobile-menu" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </div>
+                <ul id="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#patent">Patent</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#timeline">Timeline</a></li>
+                    <li><a href="index.html#subscribe">Updates</a></li>
+                    <li><a href="documents.html">Documents</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="policy-container">
+        <div class="policy-header">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last Updated: December 27, 2025</p>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">1. PURPOSE & TONE</h2>
+            <div class="policy-content">
+                <p><strong>Purpose</strong><br>
+                This Privacy Policy explains how Breaking Silence collects, uses, and protects visitor information when users access chapter content, scan QR codes from the book, or view document evidence hosted on the site.</p>
+                
+                <p><strong>Tone</strong></p>
+                <ul>
+                    <li>Clear, restrained, and non‑exploitative</li>
+                    <li>Trust‑forward and reader‑centric</li>
+                    <li>Consistent with investigative nonfiction and public‑interest scholarship</li>
+                    <li>Explicitly avoids marketing language or data‑monetization framing</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">2. SCOPE OF COVERAGE</h2>
+            <div class="policy-content">
+                <p>This policy applies to:</p>
+                <ul>
+                    <li>The main Breaking Silence website</li>
+                    <li>Chapter pages (including Chapter 1)</li>
+                    <li>Document evidence landing pages</li>
+                    <li>QR‑code‑linked resources from the book</li>
+                    <li>Embedded PDFs and document previews</li>
+                </ul>
+                <p>It does not apply to external sites linked from the website.</p>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">3. INFORMATION COLLECTED</h2>
+            <div class="policy-content">
+                <h3 class="section-subtitle">A. Information Collected Automatically</h3>
+                <p>The website may automatically collect limited, non‑identifying technical data, including:</p>
+                <ul>
+                    <li>IP address (anonymized or truncated where possible)</li>
+                    <li>Browser type and version</li>
+                    <li>Device type (desktop, mobile, tablet)</li>
+                    <li>Operating system</li>
+                    <li>Referring URL (e.g., QR scan, direct visit)</li>
+                    <li>Pages viewed and time spent</li>
+                    <li>Approximate geographic region (country or city level only)</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>Purpose</strong></p>
+                    <p>This data is used solely to:</p>
+                    <ul>
+                        <li>Understand which chapters and documents are being accessed</li>
+                        <li>Verify QR‑code functionality</li>
+                        <li>Detect broken links or unavailable documents</li>
+                        <li>Improve site stability and accessibility</li>
+                    </ul>
+                    <p>No automated profiling or behavioral tracking is performed.</p>
+                </div>
+                
+                <h3 class="section-subtitle">B. Information You Voluntarily Provide</h3>
+                <p>The website may collect information you explicitly choose to provide, such as:</p>
+                <ul>
+                    <li>Email address (only if a contact or update form is used)</li>
+                    <li>Message content (if you submit feedback or corrections)</li>
+                </ul>
+                <p>This information is used only to respond to your inquiry or request.</p>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">4. WHAT IS NOT COLLECTED (IMPORTANT)</h2>
+            <div class="policy-content">
+                <p>Breaking Silence does <strong>not</strong>:</p>
+                <ul>
+                    <li>Sell or rent user data</li>
+                    <li>Collect names, phone numbers, or addresses by default</li>
+                    <li>Use advertising trackers</li>
+                    <li>Use social‑media pixels</li>
+                    <li>Build marketing profiles</li>
+                    <li>Track users across unrelated websites</li>
+                    <li>Use invasive fingerprinting techniques</li>
+                </ul>
+                <p>No data is collected for advertising or commercial surveillance.</p>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">5. COOKIES & ANALYTICS</h2>
+            <div class="policy-content">
+                <p><strong>Cookies</strong><br>
+                The site may use:</p>
+                <ul>
+                    <li>Essential cookies for basic functionality</li>
+                    <li>Session cookies to maintain page navigation</li>
+                </ul>
+                <p>No third‑party advertising cookies are used.</p>
+                
+                <p><strong>Analytics</strong><br>
+                If analytics tools are used, they are configured to:</p>
+                <ul>
+                    <li>Minimize data retention</li>
+                    <li>Avoid cross‑site tracking</li>
+                    <li>Aggregate usage data only</li>
+                </ul>
+                <p>Visitors are never identified as individuals.</p>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">6. DOCUMENTS, PDFs & QR CODES</h2>
+            <div class="policy-content">
+                <p><strong>Document Access</strong><br>
+                When you:</p>
+                <ul>
+                    <li>Scan a QR code from the book</li>
+                    <li>Visit a document evidence page</li>
+                    <li>View or download a PDF</li>
+                </ul>
+                
+                <p>The site may log:</p>
+                <ul>
+                    <li>That the document was accessed</li>
+                    <li>The date and general location (non‑precise)</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p><strong>Reason</strong></p>
+                    <p>This ensures:</p>
+                    <ul>
+                        <li>Long‑term availability of cited sources</li>
+                        <li>Protection against link rot</li>
+                        <li>Preservation of academic and journalistic integrity</li>
+                    </ul>
+                    <p>Documents are provided for educational and public‑interest purposes.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">7. THIRD‑PARTY LINKS</h2>
+            <div class="policy-content">
+                <p>The website may link to:</p>
+                <ul>
+                    <li>Government archives</li>
+                    <li>Academic institutions</li>
+                    <li>Court records</li>
+                    <li>Journalistic sources</li>
+                </ul>
+                <p>Once you leave the site, their privacy policies apply.<br>
+                Breaking Silence is not responsible for external data practices.</p>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">8. DATA SECURITY</h2>
+            <div class="policy-content">
+                <p>Reasonable technical and organizational measures are used to:</p>
+                <ul>
+                    <li>Protect against unauthorized access</li>
+                    <li>Prevent data misuse or alteration</li>
+                    <li>Maintain site integrity</li>
+                </ul>
+                <p>However, no internet system can be guaranteed 100% secure.</p>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">9. DATA RETENTION</h2>
+            <div class="policy-content">
+                <ul>
+                    <li>Technical logs are retained only as long as necessary for site maintenance and research integrity.</li>
+                    <li>Contact communications are retained only to complete correspondence, unless ongoing dialogue is requested.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">10. USER RIGHTS</h2>
+            <div class="policy-content">
+                <p>Depending on your jurisdiction, you may have the right to:</p>
+                <ul>
+                    <li>Request access to personal data you provided</li>
+                    <li>Request correction or deletion of such data</li>
+                    <li>Ask how your data is being used</li>
+                </ul>
+                <p>Requests can be made via the site's contact page.</p>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">11. CHILDREN'S PRIVACY</h2>
+            <div class="policy-content">
+                <p>This website is intended for a general adult audience.<br>
+                No knowing collection of data from children under 13 occurs.</p>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">12. POLICY CHANGES</h2>
+            <div class="policy-content">
+                <p>This Privacy Policy may be updated to reflect:</p>
+                <ul>
+                    <li>Legal requirements</li>
+                    <li>Technical changes</li>
+                    <li>Expansion of site features</li>
+                </ul>
+                <p>The "Last Updated" date will always be shown at the bottom.</p>
+            </div>
+        </div>
+        
+        <div class="policy-section">
+            <h2 class="section-title">13. CONTACT INFORMATION</h2>
+            <div class="policy-content">
+                <p>For privacy‑related questions or concerns:</p>
+                <p><strong>Breaking Silence Press</strong><br>
+                Contact via the website's official contact page.</p>
+            </div>
+        </div>
+        
+        <div class="commitment-statement">
+            <p>Breaking Silence is committed to transparency—not only in what it investigates, but in how it treats its readers.</p>
+        </div>
+    </main>
+<footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BREAKING<span>SILENCE</span></h3>
+                    <p>Exploring the intersection of technology, secrecy, and innovation through the lens of formerly classified patents.</p>
+                    <div class="social-links">
+                        <a href="https://www.x.com" aria-label="Follow us on X (formerly Twitter)" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle light and dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <div class="toggle-circle"></div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#patent">The Patent</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#authors">Authors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> breakingsilencepress@gmail.com</li>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i> (+92) 345-531-8808</li>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Islamabad, Pakistan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Breaking Silence Press. All rights reserved.</p>
+                <p>This site is for educational purposes only and is not affiliated with the U.S. Patent Office or the inventors.</p>
+                <p><a href="privacy-policy.html" style="color: var(--text);">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navMenu = document.querySelector('#nav-menu');
+            const menuIcon = document.querySelector('.mobile-menu i');
+            
+            if (mobileMenu && navMenu) {
+                mobileMenu.addEventListener('click', function() {
+                    const isExpanded = navMenu.classList.toggle('show');
+                    mobileMenu.setAttribute('aria-expanded', isExpanded);
+                    
+                    if (menuIcon) {
+                        menuIcon.className = isExpanded ? 'fas fa-times' : 'fas fa-bars';
+                    }
+                    
+                    document.body.style.overflow = isExpanded ? 'hidden' : '';
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!navMenu.contains(e.target) && !mobileMenu.contains(e.target) && navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                        mobileMenu.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                        if (menuIcon) {
+                            menuIcon.className = 'fas fa-bars';
+                        }
+                    }
+                });
+                
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                        mobileMenu.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                        if (menuIcon) {
+                            menuIcon.className = 'fas fa-bars';
+                        }
+                        mobileMenu.focus();
+                    }
+                });
+
+                const navLinks = document.querySelectorAll('nav a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('show');
+                        mobileMenu.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                        if (menuIcon) {
+                            menuIcon.className = 'fas fa-bars';
+                        }
+                    });
+                });
+            }
+
+            const toggle = document.querySelector('.theme-toggle');
+            const html = document.documentElement;
+            const logo = document.getElementById('logo-img');
+            
+            if (toggle) {
+                const updateIcon = (isLightTheme) => {
+                    const icons = toggle.querySelectorAll('i');
+                    icons[0].style.opacity = isLightTheme ? '0' : '1';
+                    icons[0].style.transform = isLightTheme ? 'translateY(-50%) scale(0.8)' : 'translateY(-50%) scale(1)';
+                    icons[1].style.opacity = isLightTheme ? '1' : '0';
+                    icons[1].style.transform = isLightTheme ? 'translateY(-50%) scale(1)' : 'translateY(-50%) scale(0.8)';
+                };
+                
+                const updateLogo = (isLightTheme) => {
+                    if (logo) {
+                        logo.src = isLightTheme ? 'Assets/Logo-black.png' : 'Assets/Logo-white.png';
+                    }
+                };
+                
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const isLight = savedTheme === 'light' || (!savedTheme && !prefersDark);
+                
+                html.classList.toggle('light', isLight);
+                updateIcon(isLight);
+                updateLogo(isLight);
+                
+                const toggleTheme = () => {
+                    const nowLight = html.classList.toggle('light');
+                    localStorage.setItem('theme', nowLight ? 'light' : 'dark');
+                    updateIcon(nowLight);
+                    updateLogo(nowLight);
+                };
+                
+                toggle.addEventListener('click', toggleTheme);
+                toggle.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleTheme();
+                    }
+                });
+
+                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+                    if (!localStorage.getItem('theme')) {
+                        html.classList.toggle('light', e.matches);
+                        updateIcon(e.matches);
+                        updateLogo(e.matches);
+                    }
+                });
+            }
+
+            const yearElements = document.querySelectorAll('.copyright p');
+            if (yearElements.length > 0) {
+                const currentYear = new Date().getFullYear();
+                yearElements[0].innerHTML = yearElements[0].innerHTML.replace('2025', currentYear);
+            }
+        });
+    </script>
+</body>
+</html>
