@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {document.addEventListener('DOMContentLoaded', function() {
     initializeMobileMenu();
     initializeSmoothScrolling();
     initializeTestimonialSlider();
@@ -337,12 +337,9 @@ function initializeScrollEffects() {
     
     window.addEventListener('scroll', onScroll, { passive: true });
     
-    // Initial update
     updateHeader();
 }
 
-// CONFETTI FUNCTION
-// DEFAULT CONFETTI (clean, standard burst)
 function launchSubscriptionConfetti() {
     confetti({
         particleCount: 250,
@@ -351,7 +348,6 @@ function launchSubscriptionConfetti() {
     });
 }
 
-// Enhanced Form Handlers with Better Validation
 function initializeFormHandlers() {
     const subscribeForm = document.querySelector('.subscribe-form');
     if (!subscribeForm) return;
@@ -399,23 +395,29 @@ function initializeFormHandlers() {
             return;
         }
 
-        // Show loading state
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
         submitBtn.disabled = true;
         submitBtn.classList.add('loading');
 
         try {
-            // Netlify will handle the form submission automatically
-            // We simulate a successful submission for demo purposes
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // SUCCESS - Show confetti!
+            const formData = new FormData(subscribeForm);
+
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams(formData).toString()
+            });
+
+            if (!response.ok) {
+                throw new Error('Form submission failed');
+            }
+
             launchSubscriptionConfetti();
             
-            // Show success message
             showMessage(`🎉 Welcome aboard! You've subscribed with ${email}. Check your email for confirmation.`, 'success');
             
-            // Track conversion if analytics available
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'subscribe', {
                     'event_category': 'subscription',
@@ -431,19 +433,15 @@ function initializeFormHandlers() {
                 });
             }
             
-            // Reset form
             this.reset();
             emailInput.classList.remove('error');
             
-            // Mark that we've shown confetti for this session
             hasShownConfetti = true;
             
-            // Disable the button temporarily to prevent multiple submissions
             setTimeout(() => {
                 submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
-                submitBtn.style.backgroundColor = '#16a34a'; // Green color for success
+                submitBtn.style.backgroundColor = '#16a34a';
                 
-                // Re-enable after 5 seconds in case they want to subscribe with another email
                 setTimeout(() => {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalText;
@@ -456,14 +454,12 @@ function initializeFormHandlers() {
             showMessage('Sorry, there was an error processing your subscription. Please try again.', 'error');
             console.error('Subscription error:', error);
             
-            // Reset button state on error
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
             submitBtn.classList.remove('loading');
         }
     });
     
-    // Add click listener to the subscribe button for immediate feedback
     if (submitBtn) {
         submitBtn.addEventListener('click', function() {
             // Add a subtle visual feedback
@@ -712,4 +708,4 @@ if (typeof module !== 'undefined' && module.exports) {
         isValidEmail,
         showMessage
     };
-}
+            }
