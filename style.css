@@ -558,45 +558,132 @@ section {
 }
 
 .about {
-    background-color: var(--grey);
+    background-color: #1a1a1a; /* Darker, more serious tone */
+    background-image: radial-gradient(circle, #222 1px, transparent 1px);
+    background-size: 30px 30px; /* Subtle grid look */
+    padding: var(--spacing-xl) 0;
+    color: #e0e0e0;
+}
+
+.file-number {
+    display: block;
+    font-family: 'Courier New', monospace;
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
 }
 
 .about-content {
     display: flex;
     align-items: center;
-    gap: var(--spacing-lg);
-    margin-top: 2rem;
+    gap: 4rem;
+    margin-top: 3rem;
 }
 
 .about-text {
-    flex: 2;
+    flex: 1.5;
 }
 
-.about-image {
+.lead-text {
+    font-size: 1.25rem;
+    color: #fff;
+    border-left: 3px solid #444;
+    padding-left: 1.5rem;
+}
+
+/* The Document Stack Visual */
+.book-visual {
     flex: 1;
-    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.document-stack {
+    position: relative;
+    width: 280px;
+    height: 380px;
+}
+
+.document-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    padding: 30px;
+    transition: transform 0.3s ease;
+}
+
+.page-3 { transform: rotate(-6deg); background: #d1d1d1; }
+.page-2 { transform: rotate(-3deg); background: #e2e2e2; }
+.page-1 { 
+    transform: rotate(0deg); 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    background: #2a2a2a;
 }
 
-.about-image img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-    animation: fadeIn 0.8s ease-in;
-    will-change: transform;
+.doc-header {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #333;
+    margin-bottom: 10px;
 }
 
-.about-image:hover img {
-    transform: scale(1.05);
+.doc-line {
+    height: 8px;
+    background: #ccc;
+    width: 100%;
 }
 
-.about p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.7;
+.doc-line.short { width: 60%; }
+
+.doc-line.redacted {
+    background: #000; /* Blacked out text look */
+    height: 12px;
+}
+
+.redacted-stamp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    border: 4px solid #cc0000;
+    color: #cc0000;
+    padding: 5px 15px;
+    font-weight: 900;
+    font-family: 'Arial', sans-serif;
+    opacity: 0.2;
+    font-size: 2rem;
+    pointer-events: none;
+}
+
+/* Hover Effect */
+.book-visual:hover .page-1 { transform: translateY(-10px) rotate(2deg); }
+
+.about-cta {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.status-badge {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-content { flex-direction: column; text-align: center; }
+    .lead-text { border-left: none; padding-left: 0; }
+    .about-cta { justify-content: center; flex-direction: column; }
 }
 
 .features {
@@ -751,6 +838,11 @@ section {
     flex-wrap: wrap;
 }
 
+.purchase-card.coming-soon {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .purchase-card {
     background: var(--background);
     padding: 2.5rem;
@@ -758,6 +850,15 @@ section {
     text-align: center;
     box-shadow: 0 0 20px #000;
     max-width: 350px;
+}
+
+.purchase-card.coming-soon ul {
+    opacity: 0.7;
+}
+
+.purchase-card.coming-soon ul li:before {
+    content: '○'; /* Changed checkmark to a circle for "pending" feel */
+    color: var(--text);
 }
 
 .purchase-platform {
@@ -788,6 +889,17 @@ section {
     position: relative;
 }
 
+.btn.disabled {
+    background: #444; /* Greyed out color */
+    color: #888;
+    cursor: not-allowed;
+    pointer-events: none; /* Prevents clicking */
+    border: none;
+    box-shadow: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
 .purchase-card ul li:before {
     content: '✓';
     position: absolute;
@@ -796,120 +908,20 @@ section {
     font-weight: bold;
 }
 
-.testimonials {
-    background-color: var(--grey);
-}
-
-.testimonial-slider {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.testimonial-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    will-change: transform;
-}
-
-.testimonial-slide {
-    flex: 0 0 100%;
-    min-width: 100%;
-    padding: var(--spacing-md);
-    background: var(--card-bg);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    margin: 10px;
-}
-
-.testimonial-text {
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-left: 2rem;
-    line-height: 1.7;
-}
-
-.testimonial-text::before {
-    content: '"';
-    font-size: 4rem;
-    color: var(--primary-color);
-    position: absolute;
-    left: -1rem;
-    top: -1rem;
-    opacity: 0.5;
-}
-
-.testimonial-author {
-    display: flex;
-    align-items: center;
-}
-
-/* .testimonial-author img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: var(--spacing-sm);
-    object-fit: cover;
-    background: #2a2a2a;
-} */
-
-.testimonial-author span{
-    background: var(--grey-mid);
-    padding: 1.5rem .5rem;
-    border-radius: 100%;
-    font-size: .8rem;
-    margin-right: 1rem;
-}
-
-.testimonial-controls {
-    display: flex;
-    justify-content: center;
-    margin-top: var(--spacing-md);
-    gap: var(--spacing-sm);
-}
-
-.testimonial-control {
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
-
-.testimonial-control i {
-    transition: transform 0.3s ease;
-}
-
-.testimonial-control:hover {
-    background: var(--primary-hover);
-    box-shadow: 0 0 15px rgba(255, 150, 0, 0.5);
-    transform: scale(1.1);
-}
-
-.testimonial-control:hover i {
-    transform: rotate(20deg);
-}
-
 .free-sample {
     background: linear-gradient(135deg, var(--background) 0%, var(--card-bg) 100%);
     padding: var(--spacing-xl) 0;
 }
 
 .sample-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-lg);
-    align-items: start;
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+    margin-top: 3rem;
+}
+
+.sample-text {
+    flex: 1.2; /* Gives more room to the text */
 }
 
 .sample-text h3 {
@@ -920,52 +932,64 @@ section {
 
 .sample-text ul {
     list-style: none;
+    padding: 0;
     margin: 2rem 0;
 }
 
-.sample-text ul li {
-    margin-bottom: var(--spacing-sm);
-    padding-left: 2rem;
-    position: relative;
+.sample-text li {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--primary-color, #007bff);
     line-height: 1.5;
+}
+
+.sample-preview {
+    flex: 1;
+    position: sticky;
+    top: 20px; /* Keeps the card visible as you scroll the list */
 }
 
 .sample-text ul li:before {
     content: '✓';
     position: absolute;
-    left: 0;
+    left: 50%;
     color: #1cee3f;
     font-weight: bold;
     font-size: 1.1rem;
 }
 
+.sample-text li strong {
+    display: block;
+    color: var(--secondary-color, #333);
+    margin-bottom: 0.2rem;
+    font-size: 1.1rem;
+}
+
 .sample-description {
-    background: rgba(42, 61, 120, 0.1);
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid var(--secondary-color);
-    margin: 2rem 0;
     font-style: italic;
-    line-height: 1.6;
+    color: #555;
+    margin-bottom: 2rem;
 }
 
 .download-action {
-    text-align: center;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 
 .btn-download {
-    background: linear-gradient(135deg, var(--primary-color), #e68900);
-    padding: 1.2rem 2.5rem;
-    font-size: 1.1rem;
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
-    transition: all 0.3s ease;
+    gap: 10px;
+    padding: 1rem 2rem;
+    background: var(--primary-color, #007bff);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.2s;
 }
 
 .btn-download:hover {
-    box-shadow: 0 10px 25px rgba(217, 120, 42, 0.4);
+    transform: translateY(-2px);
 }
 
 .file-info {
@@ -1580,4 +1604,3 @@ footer {
         font-size: 1.1rem;
     }
 }
-
