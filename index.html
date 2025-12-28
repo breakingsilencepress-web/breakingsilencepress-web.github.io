@@ -452,16 +452,36 @@
             <div class="container">
                 <h2>Stay Updated</h2>
                 <p>Sign up to receive updates about the book release, exclusive content, and related events.</p>
-                <form class="subscribe-form" netlify name="subscribe" data-netlify="true">
-                    <input type="email" name="email" placeholder="Enter your email" required aria-label="Email address for updates">
-                    <button type="submit" class="btn">Subscribe</button>
+                <form
+                    class="subscribe-form"
+                    name="subscribe"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    >
+                    <input type="hidden" name="form-name" value="subscribe">
+
+                    <p hidden>
+                        <label>
+                        Don’t fill this out: <input name="bot-field">
+                        </label>
+                    </p>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <button type="submit">Subscribe</button>
                 </form>
                 <p>We respect your privacy. Unsubscribe at any time.</p>
             </div>
         </section>
     </main>
 
-       <footer>
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
