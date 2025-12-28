@@ -121,7 +121,7 @@ header {
     display: flex;
     align-items: center;
     transform: scale(1);
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .theme-toggle i {
@@ -135,14 +135,14 @@ header {
 }
 
 .theme-toggle .fa-moon { 
-    left: 10px; 
+    left: 9px; 
     top: 15px;
     color: var(--background);
     opacity: 1;
 }
 
 .theme-toggle .fa-sun { 
-    right: 8.5px; 
+    right: 9px; 
     color: #D9782A;
     opacity: 0; 
     transform: translateY(-50%) scale(0.8); 
@@ -1216,7 +1216,11 @@ footer {
 .footer-column h3 {
     color: var(--primary-color);
     margin-bottom: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+}
+
+.footer-column h3 span{
+    color: var(--secondary-color);
 }
 
 .footer-column ul {
