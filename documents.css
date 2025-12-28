@@ -205,6 +205,10 @@ nav ul li a {
     padding: var(--spacing-xs) 0;
 }
 
+nav ul li a span{
+    margin-left: 2%;
+}
+
 nav ul li a:hover,
 nav ul li a:focus {
     color: var(--primary-color);
@@ -781,3 +785,4 @@ footer {
         border-top: 1px solid #ccc;
     }
 }
+
