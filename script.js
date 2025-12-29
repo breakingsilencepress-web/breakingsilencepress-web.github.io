@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     initializeMobileMenu();
     initializeSmoothScrolling();
     initializeTestimonialSlider();
@@ -378,18 +378,11 @@ function initializeFormHandlers() {
     // Form submission
     subscribeForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        
+
         const email = emailInput.value.trim();
         const originalText = submitBtn.textContent;
 
-        // Validation
-        if (!email) {
-            showMessage('Please enter your email address.', 'error');
-            emailInput.focus();
-            return;
-        }
-
-        if (!isValidEmail(email)) {
+        if (!email || !isValidEmail(email)) {
             showMessage('Please enter a valid email address.', 'error');
             emailInput.focus();
             return;
@@ -397,72 +390,43 @@ function initializeFormHandlers() {
 
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
         submitBtn.disabled = true;
-        submitBtn.classList.add('loading');
 
         try {
-            const formData = new FormData(subscribeForm);
-
-            const response = await fetch('/', {
+            const response = await fetch(subscribeForm.action, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Accept': 'application/json'
                 },
-                body: new URLSearchParams(formData).toString()
+                body: new FormData(subscribeForm)
             });
 
             if (!response.ok) {
-                throw new Error('Form submission failed');
+                throw new Error('Submission failed');
             }
 
             launchSubscriptionConfetti();
-            
-            showMessage(`🎉 Welcome aboard! You've subscribed with ${email}. Check your email for confirmation.`, 'success');
-            
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'subscribe', {
-                    'event_category': 'subscription',
-                    'event_label': 'newsletter_signup',
-                    'value': 1
-                });
-            }
-            
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Subscribe', {
-                    value: 0.00,
-                    currency: 'USD',
-                });
-            }
-            
-            this.reset();
-            emailInput.classList.remove('error');
-            
-            hasShownConfetti = true;
-            
+            showMessage(`🎉 Welcome! ${email} has been subscribed.`, 'success');
+
+            subscribeForm.reset();
+
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+            submitBtn.style.backgroundColor = '#16a34a';
+
             setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
-                submitBtn.style.backgroundColor = '#16a34a';
-                
-                setTimeout(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.style.backgroundColor = '';
-                    submitBtn.classList.remove('loading');
-                }, 5000);
-            }, 1000);
-            
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.backgroundColor = '';
+            }, 5000);
+
         } catch (error) {
-            showMessage('Sorry, there was an error processing your subscription. Please try again.', 'error');
-            console.error('Subscription error:', error);
-            
+            showMessage('Subscription failed. Please try again.', 'error');
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-            submitBtn.classList.remove('loading');
         }
     });
-    
+
     if (submitBtn) {
         submitBtn.addEventListener('click', function() {
-            // Add a subtle visual feedback
             this.style.transform = 'scale(0.98)';
             setTimeout(() => {
                 this.style.transform = '';
@@ -708,4 +672,4 @@ if (typeof module !== 'undefined' && module.exports) {
         isValidEmail,
         showMessage
     };
-            }
+}
