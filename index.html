@@ -454,28 +454,18 @@
                 <p>Sign up to receive updates about the book release, exclusive content, and related events.</p>
                 <form
                     class="subscribe-form"
-                    name="subscribe"
-                    method="POST"
-                    data-netlify="true"
-                    netlify-honeypot="bot-field"
-                    >
-                    <input type="hidden" name="form-name" value="subscribe">
-
-                    <p hidden>
-                        <label>
-                        Don’t fill this out: <input name="bot-field">
-                        </label>
-                    </p>
+                    action="https://formspree.io/f/xjgvjjjy"
+                    method="POST">
 
                     <input
                         type="email"
                         name="email"
                         placeholder="Enter your email"
-                        required
-                    >
+                        required>
 
-                    <button type="submit">Subscribe</button>
+                    <button type="submit" class="btn">Subscribe</button>
                 </form>
+
                 <p>We respect your privacy. Unsubscribe at any time.</p>
             </div>
         </section>
