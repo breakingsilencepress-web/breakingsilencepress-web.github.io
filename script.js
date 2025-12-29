@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {document.addEventListener('DOMContentLoaded', function() {
     initializeMobileMenu();
     initializeSmoothScrolling();
     initializeTestimonialSlider();
@@ -435,6 +435,24 @@ function initializeFormHandlers() {
     }
 }
 
+document.getElementById('sample-download').addEventListener('click', function (e) {
+    e.preventDefault();
+    const fileUrl = '/Documents/chapter-1.pdf';
+    
+    fetch(fileUrl)
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "Free-Sample.pdf"; // The name it will save as
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(() => alert('Download failed.'));
+});
+
 function isValidEmail(email) {
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     return emailRegex.test(email);
@@ -673,3 +691,5 @@ if (typeof module !== 'undefined' && module.exports) {
         showMessage
     };
 }
+
+
