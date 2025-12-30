@@ -79,6 +79,7 @@ header {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
     gap: 4px;
 }
 
@@ -785,4 +786,3 @@ footer {
         border-top: 1px solid #ccc;
     }
 }
-
