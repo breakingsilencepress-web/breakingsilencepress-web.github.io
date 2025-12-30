@@ -377,7 +377,6 @@ function initializeFormHandlers() {
 
     // Form submission
     subscribeForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
 
         const email = emailInput.value.trim();
         const originalText = submitBtn.textContent;
@@ -445,7 +444,7 @@ document.getElementById('sample-download').addEventListener('click', function (e
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = "Chapter-1.pdf"; // The name it will save as
+            a.download = "Free-Sample.pdf"; // The name it will save as
             document.body.appendChild(a);
             a.click();
             window.URL.revokeObjectURL(url);
@@ -691,4 +690,3 @@ if (typeof module !== 'undefined' && module.exports) {
         showMessage
     };
 }
-
