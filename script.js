@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     initializeMobileMenu();
     initializeSmoothScrolling();
     initializeTestimonialSlider();
@@ -691,5 +691,3 @@ if (typeof module !== 'undefined' && module.exports) {
         showMessage
     };
 }
-
-
