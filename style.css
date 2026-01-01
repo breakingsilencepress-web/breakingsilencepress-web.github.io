@@ -592,7 +592,6 @@ section {
     padding-left: 1.5rem;
 }
 
-/* The Document Stack Visual */
 .book-visual {
     flex: 1;
     display: flex;
@@ -969,7 +968,7 @@ section {
 }
 
 .purchase-card.coming-soon ul li:before {
-    content: '○'; /* Changed checkmark to a circle for "pending" feel */
+    content: '○';
     color: var(--text);
 }
 
@@ -978,9 +977,9 @@ section {
 }
 
 .purchase-platform img {
-    max-width: 30%;
+    max-width: 60%;
     background: var(--iconBackground);
-    padding: var(--spacing-sm);
+    padding: 10px;
     border-radius: 10px;
 }
 
@@ -1002,10 +1001,10 @@ section {
 }
 
 .btn.disabled {
-    background: #444; /* Greyed out color */
+    background: #444;
     color: #888;
     cursor: not-allowed;
-    pointer-events: none; /* Prevents clicking */
+    pointer-events: none;
     border: none;
     box-shadow: none;
     text-transform: uppercase;
