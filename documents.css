@@ -45,7 +45,6 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* CHANGED: body.light-theme header to html.light header */
 html.light header {
     background-color: rgba(255, 255, 255, 0.95);
 }
@@ -239,7 +238,6 @@ nav ul li a:focus::after {
     text-align: center;
 }
 
-/* CHANGED: body.light-theme .page-header to html.light .page-header */
 html.light .page-header {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                 url('https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
@@ -260,7 +258,6 @@ html.light .page-header {
     line-height: 1.7;
 }
 
-/* Documents Section */
 .documents-section {
     padding: var(--spacing-xl) 0;
 }
@@ -304,9 +301,10 @@ html.light .page-header {
 }
 
 .document-card {
+    position: relative;
     background: var(--card-bg);
     border-radius: 10px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     will-change: transform;
@@ -321,6 +319,41 @@ html.light .page-header {
 .document-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.document-card::before {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    width: 28px;
+    height: 100px;
+    
+    background: var(--primary-color);
+    color: white;
+
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 90%, 0% 100%);
+}
+
+.document-card.ch-1::before{content: "CHAPTER 01";}
+.document-card.ch-2::before{content: "CHAPTER 02";}
+.document-card.ch-2 .btn{
+    background: #444;
+    color: #888;
+    cursor: default;
+    pointer-events: none;
+    border: none;
+    box-shadow: none;
 }
 
 .card-header {
@@ -358,10 +391,6 @@ html.light .page-header {
     font-size: 0.8rem;
     font-weight: 600;
     transition: transform 0.2s ease;
-}
-
-.tag:hover {
-    transform: translateY(-2px);
 }
 
 .tag.confidential {
