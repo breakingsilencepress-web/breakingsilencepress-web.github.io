@@ -347,9 +347,11 @@ html.light .page-header {
 
 .document-card.ch-1::before{content: "CHAPTER 01";}
 .document-card.ch-2::before{content: "CHAPTER 02";}
-.document-card.ch-2 .btn{
-    background: #444;
-    color: #888;
+.document-card.ch-3::before{content: "CHAPTER 03";}
+.document-card.ch-2 .btn,
+.document-card.ch-3 .btn{
+    background: #333;
+    color: var(--text);
     cursor: default;
     pointer-events: none;
     border: none;
