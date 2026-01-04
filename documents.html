@@ -1,819 +1,716 @@
-:root {
-    --primary-color: #D9782A;
-    --primary-hover: #e08b3a;
-    --secondary-color: #2A3D78;
-    --secondary-hover: #39529e;
-    --iconBackground: #fff;
-    --background: #111111;
-    --grey: #222;
-    --text: #fff;
-    --card-bg: #1a1a1a;
-    --grey-mid: #333;
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 1rem;
-    --spacing-xl: 5rem;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classified Documents - BREAKINGSILENCE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="documents.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a class="logo" href="index.html">
+                <img src="Assets/Logo-white.png" class="logo-img" alt="BREAKING SILENCE Logo" id="logo-img">
+                <div class="logo-text">BREAKING<span>SILENCE</span></div>
+            </a>
+            <nav aria-label="Main navigation">
+                <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#patent">Patent</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#timeline">Timeline</a></li>
+                    <li><a href="index.html#subscribe">Updates</a></li>
+                    <li><a href="documents.html">Evidence<span>Library</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-/* CHANGED: body.light-theme to html.light */
-html.light {
-    --background: #f5f5f5;
-    --iconBackground: #a8a8a8;
-    --grey: #e0e0e0;
-    --text: #111111;
-    --card-bg: #ffffff;
-    --grey-mid: #757575;
-}
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Classified Documents Library</h1>
+                <p>Access declassified patent documents, research papers, and government reports related to formerly secret military technologies. Each document includes detailed information and is available for download.</p>
+            </div>
+        </section>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+        <section class="documents-section" aria-labelledby="declassified-patents">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="declassified-patents">Declassified Patent Documents</h2>
+                    <p>Explore formerly classified patents and related documents that were kept secret for national security reasons</p>
+                </div>
+                <div class="documents-grid">
+                    <article class="document-card ch-1">
+                        <div class="card-header">
+                            <h3>Court Opinion on Motion to Dismiss</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Declassified: January 15, 2015
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Legal</span>
+                                <span class="tag official">Secrecy</span>
+                                <span class="tag technical">Court</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Federal court opinion addressing the legal limits of government secrecy and disclosure obligations, directly relevant to judicial oversight of classified or suppressed technological claims.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">Court Opinion on Motion to Dismiss</div>
+                                <div class="pdf-pages">14 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/w1.1 USCOURTS-mied-4_14-cv-11920-0.pdf"
+                            class="btn btn-download"
+                            data-name="w1.1 USCOURTS-mied-4_14-cv-11920-0.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/w1.1 USCOURTS-mied-4_14-cv-11920-0.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="document-card ch-1">
+                        <div class="card-header">
+                            <h3>U.S. Patent Secrecy Statute (35 U.S.C. Chapter 17)</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: September 2, 1958
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Classified</span>
+                                <span class="tag official">Patent</span>
+                                <span class="tag technical">Regulation</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Statutory framework authorizing the U.S. government to impose, enforce, and maintain secrecy orders on patent applications deemed sensitive to national security.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">U.S. Patent Secrecy Statute (35 U.S.C. Chapter 17)</div>
+                                <div class="pdf-pages">3 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/service-ll-uscode-Qr 1.2.pdf"
+                            class="btn btn-download"
+                            data-name="service-ll-uscode-Qr 1.2.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/service-ll-uscode-Qr 1.2.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="document-card ch-1">
+                        <div class="card-header">
+                            <h3>Infrared Missile Countermeasure Patent (US 8,925,438)</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: January 6, 2015
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Military</span>
+                                <span class="tag official">Defense</span>
+                                <span class="tag technical">Stealth</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Complete patent document for “Countermeasure Technique Using an Appropriate Fluid Spray Against Infrared Heat Seeking Missile,” filed in 2007 and granted in 2015 following extended national-security review.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">Infrared Missile Countermeasure Patent (US 8,925,438)</div>
+                                <div class="pdf-pages">5 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/US8925438 ch 1-1.3.pdf"
+                            class="btn btn-download"
+                            data-name="US8925438 ch 1-1.3.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/US8925438 ch 1-1.3.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="document-card ch-1">
+                        <div class="card-header">
+                            <h3>U.S. Invention Secrecy Activity — Archived Snapshot (2025)</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: October 23, 2025
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Classified</span>
+                                <span class="tag official">Data</span>
+                                <span class="tag technical">Secrecy</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Fixed archival snapshot of the Federation of American Scientists’ invention secrecy database, preserving verifiable secrecy-order statistics cited in Chapter 1.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">U.S. Invention Secrecy Activity — Archived Snapshot (2025)</div>                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="assets/documents/damnjanovic-interview.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Access Online
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="document-card ch-1">
+                        <div class="card-header">
+                            <h3>Swedish Defence Inventions Act (1971)</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: December 17, 1971
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Classified</span>
+                                <span class="tag official">Defense</span>
+                                <span class="tag technical">Foreign Law</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Swedish law governing the review, classification, and control of defense-related inventions, demonstrating that institutional secrecy over technological innovation operates internationally.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">Swedish Defence Inventions Act (1971)</div>
+                                <div class="pdf-pages">5 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/se144sv QR 1.5.pdf"
+                            class="btn btn-download"
+                            data-name="se144sv QR 1.5.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/se144sv QR 1.5.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    <article class="document-card ch-2">
+                        <div class="card-header">
+                            <h3>Invention Secrecy Activity</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: 2025
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Classified</span>
+                                <span class="tag official">Defense</span>
+                                <span class="tag technical">Patent Secrecy</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Compiled and maintained by <strong>Steven Aftergood</strong> of the Federation of American Scientists, this table aggregates official USPTO invention secrecy statistics across multiple fiscal years, documenting the scope and administration of U.S. patent secrecy orders.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">Invention Secrecy Activity</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="assets/documents/damnjanovic-interview.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Access Online
+                            </a>
+                        </div>
+                    </article>
+                    <article class="document-card ch-2">
+                        <div class="card-header">
+                            <h3>The Purple Dragon</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: June 1993
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Classified</span>
+                                <span class="tag official">Defense</span>
+                                <span class="tag technical">OPSEC</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Historical account of the Purple Dragon operations security program, detailing the origins and development of U.S. military and government operations security practices, compiled from declassified NSA cryptologic histories.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">The Purple Dragon</div>
+                                <div class="pdf-pages">106 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/se144sv QR 1.5.pdf"
+                            class="btn btn-download"
+                            data-name="se144sv QR 1.5.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/se144sv QR 1.5.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    <article class="document-card ch-2">
+                        <div class="card-header">
+                            <h3>National OPSEC Directive</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: January 22, 1988
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Classified</span>
+                                <span class="tag official">Defense</span>
+                                <span class="tag technical">OPSEC</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Establishes the U.S. National Operations Security Program, outlining processes to protect sensitive government activities and prevent adversaries from exploiting unclassified indicators. Defines roles, responsibilities, and interagency coordination for OPSEC implementation.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">National OPSEC Directive</div>
+                                <div class="pdf-pages">5 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/se144sv QR 1.5.pdf"
+                            class="btn btn-download"
+                            data-name="se144sv QR 1.5.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/se144sv QR 1.5.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    <article class="document-card ch-2">
+                        <div class="card-header">
+                            <h3>USPTO Secrecy Orders</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: October 26, 2012
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Secrecy</span>
+                                <span class="tag official">Patent</span>
+                                <span class="tag technical">National Security</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Provides filing dates for U.S. Invention Secrecy Orders from 1965–2012, along with USPTO rules for administering such orders. Highlights the intersection of intellectual property, national security, and controlled disclosure.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">USPTO Secrecy Orders</div>
+                                <div class="pdf-pages">131 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/se144sv QR 1.5.pdf"
+                            class="btn btn-download"
+                            data-name="se144sv QR 1.5.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/se144sv QR 1.5.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    <article class="document-card ch-2">
+                        <div class="card-header">
+                            <h3>Swedish Defence Inventions Act</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: December 17, 1971
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Secrecy</span>
+                                <span class="tag official">Patent</span>
+                                <span class="tag technical">Defence</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Regulates Swedish and foreign defense-related inventions, outlining procedures for secrecy, review, patent applications, and government oversight. Establishes the Defence Materiel Administration and Review Board as key authorities for protecting national security.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">Swedish Defence Inventions Act</div>
+                                <div class="pdf-pages">8 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/se144sv QR 1.5.pdf"
+                            class="btn btn-download"
+                            data-name="se144sv QR 1.5.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/se144sv QR 1.5.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    <article class="document-card ch-2">
+                        <div class="card-header">
+                            <h3>Canadian Patent Act (Consolidated)</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: December 2, 2025
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Canada</span>
+                                <span class="tag official">Patents</span>
+                                <span class="tag technical">Law</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Official consolidated version of Canada’s Patent Act, reflecting all amendments in force as of December 2, 2025. Published under the authority of the Legislation Revision and Consolidation Act.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">Canadian Patent Act (Consolidated)</div>
+                                <div class="pdf-pages">151 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/se144sv QR 1.5.pdf"
+                            class="btn btn-download"
+                            data-name="se144sv QR 1.5.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/se144sv QR 1.5.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    <article class="document-card ch-3">
+                        <div class="card-header">
+                            <h3>Tesla FBI Records</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: Declassified via FBI Vault (1943 – 1950s)
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Secrecy</span>
+                                <span class="tag official">Intelligence</span>
+                                <span class="tag technical">Invention</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">Consolidated declassified FBI records on Nikola Tesla, including memoranda, correspondence, and investigative reports following his death. Documents cover government handling of Tesla’s papers and internal assessments of his inventions from the 1940s onward.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">Tesla FBI Records</div>
+                                <div class="pdf-pages">Not available</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/se144sv QR 1.5.pdf"
+                            class="btn btn-download"
+                            data-name="se144sv QR 1.5.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/se144sv QR 1.5.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    <article class="document-card ch-3">
+                        <div class="card-header">
+                            <h3>Tesla Writings Exhibits Abstracts</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: August 8, 2000
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Classified</span>
+                                <span class="tag official">Defence</span>
+                                <span class="tag technical">OPSEC</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">This declassified document includes a 1992 DIA cover letter and 1943 abstracts of Nikola Tesla's technical papers examined for military and commercial value post his death. It details exhibits A-Q from Tesla's stored possessions, evaluated by John G. Trump and others for potential war efforts. The report highlights ideas on electrostatic generators, reactive forces, and power transmission.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">Tesla Writings Exhibits Abstracts</div>
+                                <div class="pdf-pages">16 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/se144sv QR 1.5.pdf"
+                            class="btn btn-download"
+                            data-name="se144sv QR 1.5.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/se144sv QR 1.5.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    <article class="document-card ch-3">
+                        <div class="card-header">
+                            <h3>Electrical Energy Transmission System</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: March 20, 1900
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Patent</span>
+                                <span class="tag official">Invention</span>
+                                <span class="tag technical">Energy</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">This patent outlines Nikola Tesla's method for wireless electrical energy transmission through air and earth using high-voltage impulses to make atmospheric strata conductive. It describes apparatus with elevated terminals, synchronized circuits, and transformers for efficient long-distance power transfer. The invention focuses on safety, high electromotive forces, and potential for industrial-scale global distribution.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">Electrical Energy Transmission System</div>
+                                <div class="pdf-pages">7 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/se144sv QR 1.5.pdf"
+                            class="btn btn-download"
+                            data-name="se144sv QR 1.5.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/se144sv QR 1.5.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                    <article class="document-card ch-3">
+                        <div class="card-header">
+                            <h3>Wireless Power Magnetic Resonances</h3>
+                            <div class="card-date">
+                                <i class="far fa-calendar-alt" aria-hidden="true"></i> Published: July 6, 2007
+                            </div>
+                            <div class="card-tags">
+                                <span class="tag confidential">Research</span>
+                                <span class="tag official">Technology</span>
+                                <span class="tag technical">Innovation</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description">This paper demonstrates efficient nonradiative wireless power transfer using strongly coupled self-resonant coils, achieving 60 watts at ~40% efficiency over distances exceeding 2 meters. It provides a quantitative model matching experimental results within 5% and discusses practical applications. The work builds on magnetic resonance principles for midrange energy transfer.</p>
+                            
+                            <div class="pdf-preview" role="region" aria-label="Document preview">
+                                <div class="pdf-icon" aria-hidden="true">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-title">Wireless Power Magnetic Resonances</div>
+                                <div class="pdf-pages">5 pages</div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/Documents/se144sv QR 1.5.pdf"
+                            class="btn btn-download"
+                            data-name="se144sv QR 1.5.pdf">
+                                <i class="fas fa-download" aria-hidden="true"></i> Download PDF
+                            </a>
+                            <a href="/Documents/se144sv QR 1.5.pdf" class="btn btn-read" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Read Online
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
 
-html {
-    scroll-behavior: smooth;
-}
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BREAKING<span>SILENCE</span></h3>
+                    <p>Exploring the intersection of technology, secrecy, and innovation through the lens of formerly classified patents.</p>
+                    <div class="social-links">
+                        <a href="https://www.x.com" aria-label="Follow us on X (formerly Twitter)" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com" aria-label="Follow us on LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle light and dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <div class="toggle-circle"></div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#patent">The Patent</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#timeline">Timeline</a></li>
+                        <li><a href="index.html#authors">Authors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> breakingsilencepress@gmail.com</li>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i> (+92) 345-531-8808</li>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Islamabad, Pakistan</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Breaking Silence Press. All rights reserved.</p>
+                <p>This site is for educational purposes only and is not affiliated with the U.S. Patent Office or the inventors.</p>
+                <p><a href="privacy-policy.html" style="color: var(--text);">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
 
-body {
-    line-height: 1.6;
-    color: var(--text);
-    background-color: var(--background);
-    overflow-x: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+    <script>
 
-html.light header {
-    background-color: rgba(255, 255, 255, 0.95);
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: var(--spacing-md) 0;
-}
-
-header {
-    background-color: rgba(17, 17, 17, 0.95);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    padding: .4rem;
-}
-
-.logo{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    gap: 4px;
-}
-
-.logo-img{
-    max-width: 7%;
-}
-
-.logo-text{
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    cursor: pointer;
-}
-
-.logo span {
-    color: var(--secondary-color);
-}
-
-.mobile-menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.mobile-menu-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.mobile-menu-toggle:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
-.theme-toggle {
-    position: relative;
-    width: 62px;
-    height: 34px;
-    background: #222;
-    border-radius: 50px;
-    cursor: pointer;
-    overflow: hidden;
-    box-shadow: inset 0 3px 8px rgba(0,0,0,0.7), 0 0 10px #5c5a5a;
-    border: 2px solid #333;
-    display: flex;
-    align-items: center;
-    transform: scale(1);
-    margin-top: 2rem;
-}
-
-.theme-toggle i {
-    position: absolute;
-    font-size: 1.1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.4s ease;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.theme-toggle .fa-moon { 
-    left: 9px; 
-    top: 15px;
-    color: var(--background);
-    opacity: 1;
-}
-
-.theme-toggle .fa-sun { 
-    right: 9px; 
-    color: #D9782A;
-    opacity: 0; 
-    transform: translateY(-50%) scale(0.8); 
-}
-
-.theme-toggle .toggle-circle {
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    background: #D9782A;
-    border-radius: 50%;
-    left: 4px;
-    top: 2px;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
-    z-index: 1;
-}
-
-html.light .theme-toggle {
-    background: #e8e8e8;
-    border-color: #ccc;
-}
-
-html.light .theme-toggle .fa-moon { opacity: 0; transform: translateY(-50%) scale(0.8); }
-html.light .theme-toggle .fa-sun  { opacity: 1; transform: translateY(-50%) scale(1); }
-html.light .theme-toggle .toggle-circle {
-    transform: translateX(24px);
-    background: #222;
-}
-
-.theme-toggle:hover .toggle-circle {
-    box-shadow: 0 0 16px rgba(217, 120, 42, 0.8);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: var(--spacing-lg);
-}
-
-nav ul li a {
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-    position: relative;
-    padding: var(--spacing-xs) 0;
-}
-
-nav ul li a span{
-    margin-left: 2%;
-}
-
-nav ul li a:hover,
-nav ul li a:focus {
-    color: var(--primary-color);
-    outline: none;
-}
-
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--primary-color);
-    transition: width 0.3s;
-}
-
-nav ul li a:hover::after,
-nav ul li a:focus::after {
-    width: 100%;
-}
-
-.page-header {
-    padding: 10rem 0 4rem;
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
-                url('https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-    text-align: center;
-}
-
-html.light .page-header {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-}
-
-.page-header h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-}
-
-.page-header p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #fff;
-    line-height: 1.7;
-}
-
-.documents-section {
-    padding: var(--spacing-xl) 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-    position: relative;
-}
-
-.section-title h2 {
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    display: inline-block;
-    margin-bottom: var(--spacing-sm);
-}
-
-.section-title h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: var(--primary-color);
-    margin: 10px auto;
-    border-radius: 2px;
-}
-
-.section-title p {
-    max-width: 700px;
-    margin: 0 auto;
-    color: var(--text);
-    opacity: 0.8;
-    font-size: 1.1rem;
-}
-
-.documents-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.document-card {
-    position: relative;
-    background: var(--card-bg);
-    border-radius: 10px;
-    overflow: visible;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    will-change: transform;
-    position: relative;
-    border: 1px solid var(--grey-mid);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    border-top: 0.4rem solid var(--primary-color);
-}
-
-.document-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.document-card::before {
-    position: absolute;
-    top: 0;
-    right: 5px;
-    width: 28px;
-    height: 100px;
+    const mobileMenuBtn = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
     
-    background: var(--primary-color);
-    color: white;
-
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
+    mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+        mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+        navMenu.classList.toggle('show');
+    });
     
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    padding-bottom: 10px;
-
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 90%, 0% 100%);
-}
-
-.document-card.ch-1::before{content: "CHAPTER 01";}
-.document-card.ch-2::before{content: "CHAPTER 02";}
-.document-card.ch-3::before{content: "CHAPTER 03";}
-.document-card.ch-2 .btn,
-.document-card.ch-3 .btn{
-    background: #333;
-    color: var(--text);
-    cursor: default;
-    pointer-events: none;
-    border: none;
-    box-shadow: none;
-}
-
-.card-header {
-    padding: var(--spacing-md);
-    border-bottom: 1px solid var(--grey-mid);
-}
-
-.card-header h3 {
-    color: var(--primary-color);
-    font-size: 1.4rem;
-    margin-bottom: var(--spacing-xs);
-    line-height: 1.3;
-}
-
-.card-date {
-    color: var(--text);
-    opacity: 0.7;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-}
-
-.card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-    margin-top: var(--spacing-sm);
-}
-
-.tag {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    transition: transform 0.2s ease;
-}
-
-.tag.confidential {
-    background: rgba(255, 0, 0, 0.15);
-    color: #E74C3C;
-    border: 1px solid rgba(255, 0, 0, 0.3);
-}
-
-.tag.technical {
-    background: rgba(0, 255, 0, 0.15);
-    color: #27AE60;
-    border: 1px solid rgba(0, 255, 0, 0.3);
-}
-
-.tag.official {
-    background: rgba(42, 61, 120, 0.2);
-    color: #3498DB;
-    border: 1px solid rgba(42, 61, 120, 0.3);
-}
-
-.tag.report {
-    background: rgba(217, 120, 42, 0.2);
-    color: #ffb36b;
-    border: 1px solid rgba(217, 120, 42, 0.3);
-}
-
-.card-body {
-    padding: var(--spacing-md);
-    flex-grow: 1;
-}
-
-.card-description {
-    color: var(--text);
-    opacity: 0.9;
-    margin-bottom: var(--spacing-md);
-    line-height: 1.6;
-}
-
-.pdf-preview {
-    height: 180px;
-    background: var(--grey);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: var(--spacing-md);
-    position: relative;
-    overflow: hidden;
-    border: 1px solid var(--grey-mid);
-    transition: background-color 0.3s ease;
-}
-
-.pdf-icon {
-    font-size: 3.5rem;
-    color: #ff4444;
-    margin-bottom: var(--spacing-sm);
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-}
-
-.pdf-title {
-    color: var(--text);
-    font-weight: 600;
-    text-align: center;
-    padding: 0 var(--spacing-sm);
-    font-size: 1rem;
-    line-height: 1.4;
-}
-
-.pdf-pages {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 0.2rem 0.8rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
-}
-
-.card-footer {
-    padding: 0 var(--spacing-md) var(--spacing-md);
-    display: flex;
-    gap: var(--spacing-sm);
-    margin-top: auto;
-}
-
-.btn {
-    padding: 0.8rem 1.2rem;
-    border-radius: 5px;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-xs);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-    font-size: 0.90rem;
-    flex: 1;
-    text-align: center;
-    min-height: 44px;
-}
-
-.btn:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
-.btn-download {
-    background: linear-gradient(135deg, var(--primary-color), #e68900);
-    color: #fff;
-    border: 1px solid var(--primary-color);
-}
-
-.btn-download:hover,
-.btn-download:focus {
-    background: linear-gradient(135deg, var(--primary-hover), #f09900);
-    box-shadow: 0 0 15px rgba(217, 120, 42, 0.5);
-    transform: translateY(-2px);
-}
-
-.btn-read {
-    background: var(--secondary-color);
-    color: #fff;
-    border: 1px solid var(--secondary-color);
-}
-
-.btn-read:hover,
-.btn-read:focus {
-    background: var(--secondary-hover);
-    box-shadow: 0 0 15px rgba(42, 61, 120, 0.5);
-    transform: translateY(-2px);
-}
-
-footer {
-    background-color: var(--background);
-    padding: var(--spacing-lg) 0 1.5rem;
-    border-top: 1px solid var(--grey-mid);
-    transition: background-color 0.3s ease;
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--spacing-md);
-    margin-bottom: 2rem;
-}
-
-.footer-column {
-    flex: 1;
-    min-width: 200px;
-}
-
-.footer-column h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.footer-column h3 span{
-    color: var(--secondary-color);
-}
-
-.footer-column ul {
-    list-style: none;
-}
-
-.footer-column ul li {
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.footer-column ul li a {
-    color: var(--text);
-    opacity: 0.8;
-    text-decoration: none;
-    transition: color 0.3s ease, opacity 0.3s ease;
-}
-
-.footer-column ul li a:hover,
-.footer-column ul li a:focus {
-    color: var(--primary-color);
-    opacity: 1;
-    outline: none;
-}
-
-.social-links {
-    display: flex;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-sm);
-}
-
-.social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--grey-mid);
-    border-radius: 50%;
-    color: white;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.social-links a:hover,
-.social-links a:focus {
-    background: var(--primary-color);
-    transform: translateY(-2px);
-    outline: none;
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid #333;
-    color: #777;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-.copyright a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.copyright a:hover {
-    color: var(--primary-color);
-}
-
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block;
-    }
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('show');
+        }
+    });
     
-    nav ul {
-        display: none;
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: var(--background);
-        flex-direction: column;
-        padding: var(--spacing-sm) 0;
-        text-align: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(10px);
-        z-index: 999;
-        max-height: calc(100vh - 80px);
-        overflow-y: auto;
-    }
-
-    nav ul.show {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 0;
-        width: 100%;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: var(--spacing-sm) 0;
-        border-bottom: 1px solid var(--grey-mid);
-        font-size: 1.1rem;
-        width: 100%;
-    }
-
-    nav ul li:last-child a {
-        border-bottom: none;
-    }
-
-    .page-header {
-        padding: 8rem 0 3rem;
-    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('show');
+            mobileMenuBtn.focus();
+        }
+    });
     
-    .page-header h1 {
-        font-size: 2.2rem;
-    }
-    
-    .page-header p {
-        font-size: 1.1rem;
-        padding: 0 1rem;
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('#nav-menu a');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.setAttribute('aria-current', 'page');
+        }
+    });
+
+    function initializeThemeToggle() {
+        const toggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+        const icon = toggle ? toggle.querySelector('i') : null;
+        const logo = document.getElementById('logo-img');
+
+        if (!toggle || !icon) return;
+
+        function updateIcon(isLightTheme) {
+            icon.className = isLightTheme ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        function updateLogo(isLightTheme) {
+            if (!logo) return;
+            logo.src = isLightTheme ? 'Assets/Logo-black.png' : 'Assets/Logo-white.png';
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isLight = savedTheme === 'light' || (!savedTheme && !prefersDark);
+
+        html.classList.toggle('light', isLight);
+        updateIcon(isLight);
+        updateLogo(isLight);
+
+        const toggleTheme = () => {
+            const nowLight = html.classList.toggle('light');
+            localStorage.setItem('theme', nowLight ? 'light' : 'dark');
+            updateIcon(nowLight);
+            updateLogo(nowLight);
+        };
+
+        toggle.addEventListener('click', toggleTheme);
+        toggle.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleTheme();
+            }
+        });
+
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                html.classList.toggle('light', e.matches);
+                updateIcon(e.matches);
+                updateLogo(e.matches);
+            }
+        });
     }
 
-    .documents-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-sm);
-    }
+    document.querySelectorAll(".btn-download").forEach(btn => {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
 
-    .section-title h2 {
-        font-size: 2rem;
-    }
-    
-    .section-title p {
-        font-size: 1rem;
-        padding: 0 1rem;
-    }
+            const link = document.createElement("a");
+            link.href = this.href;
+            link.download = this.dataset.name;
 
-    .card-footer {
-        flex-direction: column;
-    }
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    });
 
-    .btn {
-        width: 100%;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: var(--spacing-lg);
+    function downloadPDF(pdfUrl, filename) {
+        try {
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = filename;
+
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            console.log('Download initiated for:', filename);
+        } catch (error) {
+            console.error('Error downloading PDF:', error);
+            alert('Error downloading the PDF.');
+        }
     }
     
-    .footer-column {
-        min-width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .page-header {
-        padding: 7rem 0 2rem;
-    }
-    
-    .page-header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .section-title h2 {
-        font-size: 1.8rem;
-    }
-    
-    .card-header h3 {
-        font-size: 1.2rem;
-    }
-    
-    .container {
-        width: 95%;
-    }
-    
-    .header-container {
-        width: 95%;
-        padding: 0.5rem 0;
-    }
-}
-
-/* Accessibility - Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-    
-    .document-card:hover,
-    .btn:hover,
-    .btn:focus,
-    .social-links a:hover,
-    .theme-toggle:hover .toggle-circle {
-        transform: none;
-    }
-    
-    html {
-        scroll-behavior: auto;
-    }
-}
-
-/* Print Styles */
-@media print {
-    .mobile-menu-toggle,
-    .theme-toggle,
-    .social-links,
-    .btn-download,
-    .btn-read {
-        display: none !important;
-    }
-    
-    header {
-        position: static;
-        background: none !important;
-        box-shadow: none;
-    }
-    
-    .page-header {
-        background: none !important;
-        padding: 2rem 0;
-    }
-    
-    .page-header h1 {
-        color: #000;
-        text-shadow: none;
-    }
-    
-    .page-header p {
-        color: #000;
-    }
-    
-    .document-card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ccc;
-    }
-    
-    .document-card::before {
-        background: #ccc;
-    }
-    
-    .pdf-preview {
-        border: 1px solid #ccc;
-        background: #f5f5f5;
-    }
-    
-    footer {
-        background: none;
-        border-top: 1px solid #ccc;
-    }
-}
+    initializeThemeToggle();
+</script>
+</body>
+</html>
