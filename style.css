@@ -782,7 +782,13 @@ section {
     
     .timeline-item.left .timeline-dot,
     .timeline-item.right .timeline-dot {
-        left: -12px;
+        top: 10px;
+        right: auto;
+    }
+
+    .timeline-item.left:hover .timeline-dot,
+    .timeline-item.right:hover .timeline-dot {
+        top: -10px;
         right: auto;
     }
     
@@ -849,7 +855,7 @@ section {
 }
 
 .purchase-platform img {
-    max-width: 60%;
+    max-width: 30%;
     background: var(--iconBackground);
     padding: 10px;
     border-radius: 10px;
@@ -904,7 +910,7 @@ section {
 }
 
 .sample-text {
-    flex: 1.2; /* Gives more room to the text */
+    flex: 1.2;
 }
 
 .sample-text h3 {
@@ -929,7 +935,7 @@ section {
 .sample-preview {
     flex: 1;
     position: sticky;
-    top: 20px; /* Keeps the card visible as you scroll the list */
+    top: 20px;
 }
 
 .sample-text ul li:before {
@@ -1205,6 +1211,68 @@ section {
 .error-message.show {
     display: block;
 }
+
+.media-updates {
+    background-color: #111;
+    color: #eee;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.media-updates .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.media-updates h2 {
+    font-size: 2em;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.media-updates p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #ddd;
+    text-align: center;
+}
+
+.media-updates .update {
+    margin-bottom: 2.5rem;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 1rem;
+}
+
+.media-updates .update-date {
+    display: block;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.media-updates .update h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.media-updates .update p {
+    margin-bottom: 0;
+    color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .media-updates h2 {
+        font-size: 1.8em;
+    }
+    .media-updates .update h3 {
+        font-size: 1.1em;
+    }
+}
+
 
 footer {
     background-color: var(--background);
