@@ -350,7 +350,8 @@ html.light .page-header {
 .document-card.ch-3::before{content: "CHAPTER 03";}
 .document-card.ch-4::before{content: "CHAPTER 04";}
 .document-card.ch-2 .btn,
-.document-card.ch-3 .btn{
+.document-card.ch-3 .btn,
+.document-card.ch-4 .btn{
     background: #333;
     color: var(--text);
     cursor: default;
@@ -818,4 +819,5 @@ footer {
         border-top: 1px solid #ccc;
     }
 }
+
 
