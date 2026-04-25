@@ -88,7 +88,7 @@ if(popUpButton){
 
 if(loginButton){
     loginButton.addEventListener('click', async () => {
-        const response = await fetch(`http://${API_URL}/adminlogin`, {
+        const response = await fetch(`${API_URL}/adminlogin`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
