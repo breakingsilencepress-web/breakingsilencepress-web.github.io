@@ -10,26 +10,27 @@ evidenceCardData = [];
 
 getEvidences();
 
-searchIcon.addEventListener('click', () => {
-    documentsVisible = [];
-    documentNames.forEach(doc => {
-        if(!doc.textContent.toLowerCase().startsWith(searchBar.value.toLowerCase())){
-            doc.closest('.card').classList.add('hide');
+if(searchIcon){
+    searchIcon.addEventListener('click', () => {
+        documentsVisible = [];
+        documentNames.forEach(doc => {
+            if(!doc.textContent.toLowerCase().startsWith(searchBar.value.toLowerCase())){
+                doc.closest('.card').classList.add('hide');
+            } else {
+                doc.closest('.card').classList.remove('hide');
+            }
+            if(!doc.closest('.card').classList.contains('hide')){
+                documentsVisible.push(doc);
+            }
+    
+        });
+        if(documentsVisible.length == 0){
+            noDocument.style.display = "flex";
         } else {
-            doc.closest('.card').classList.remove('hide');
+            noDocument.style.display = "none";
         }
-        if(!doc.closest('.card').classList.contains('hide')){
-            documentsVisible.push(doc);
-        }
-
     });
-    if(documentsVisible.length == 0){
-        noDocument.style.display = "flex";
-    } else {
-        noDocument.style.display = "none";
-    }
-});
-
+};
 async function getEvidences(){
     evidenceCardData.splice(0, evidenceCardData.length);
     try {
