@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — BreakingSilence Press</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Crimson+Pro:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-page:        #0B0C1A;
+            --bg-section:     #0F1020;
+            --bg-card:        #14152A;
+            --amber:          #C8860A;
+            --amber-light:    #E8A820;
+            --amber-pale:     #F5C842;
+            --amber-dim:      rgba(200,134,10,0.10);
+            --amber-border:   rgba(200,134,10,0.22);
+            --text-h:         #F5F0E8;
+            --text-body:      #CEC9C0;
+            --text-muted:     #8A8780;
+            --border-solid:   rgba(255,255,255,0.07);
+            --font-display:   'Playfair Display', Georgia, serif;
+            --font-body:      'Crimson Pro', Georgia, serif;
+            --font-mono:      'Space Mono', monospace;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg-page);
+            color: var(--text-body);
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.75;
+        }
+
+        /* NAV */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11,12,26,0.96);
+            border-bottom: 1px solid var(--amber-border);
+            padding: 18px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            color: var(--text-h);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-logo span { color: var(--amber); }
+
+        .nav-back {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-back:hover { color: var(--amber-light); }
+
+        /* HERO */
+        .hero {
+            padding: 80px 48px 60px;
+            max-width: 860px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--border-solid);
+        }
+
+        .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--amber);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 6vw, 68px);
+            font-weight: 700;
+            color: var(--text-h);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-meta {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+        }
+
+        .hero-meta span { color: var(--amber); margin: 0 8px; }
+
+        /* CONTENT */
+        .content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 48px 100px;
+        }
+
+        .section {
+            margin-bottom: 56px;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .section-number {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--amber);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section h2 {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-h);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section p {
+            color: var(--text-body);
+            margin-bottom: 14px;
+        }
+
+        .section ul {
+            list-style: none;
+            margin: 14px 0;
+            padding: 0;
+        }
+
+        .section ul li {
+            padding: 8px 0 8px 20px;
+            position: relative;
+            color: var(--text-body);
+            border-bottom: 1px solid var(--border-solid);
+        }
+
+        .section ul li:last-child { border-bottom: none; }
+
+        .section ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--amber);
+            font-family: var(--font-mono);
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border-solid);
+            margin: 56px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '§';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-page);
+            padding: 0 16px;
+            color: var(--amber-border);
+            font-family: var(--font-display);
+            font-size: 18px;
+        }
+
+        /* CONTACT CARD */
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--amber-border);
+            border-radius: 6px;
+            padding: 28px 32px;
+            margin-top: 20px;
+        }
+
+        .contact-card p {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .contact-card a {
+            color: var(--amber-light);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-card a:hover { color: var(--amber-pale); }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border-solid);
+            padding: 32px 48px;
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer p {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+        }
+
+        footer a {
+            color: var(--amber);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.08em;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            nav, .hero, .content, footer { padding-left: 24px; padding-right: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a class="nav-logo" href="index.html">Breaking<span>Silence</span></a>
+        <a class="nav-back" href="index.html">← Back to Site</a>
+    </nav>
+
+    <div class="hero">
+        <p class="eyebrow">Legal</p>
+        <h1>Privacy Policy</h1>
+        <p class="hero-meta">
+            BreakingSilence Press
+            <span>·</span>
+            Effective Date: April 23, 2026
+            <span>·</span>
+            International
+        </p>
+    </div>
+
+    <div class="content">
+
+        <div class="section">
+            <p class="section-number">01</p>
+            <h2>Who We Are</h2>
+            <p>BreakingSilence Press is an independent investigative publishing project based in Islamabad, Pakistan. We publish research, evidence, and analysis related to the U.S. Invention Secrecy Act and related government policy.</p>
+            <p>This Privacy Policy explains how we handle the personal information of visitors who subscribe to updates on our website.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-number">02</p>
+            <h2>What We Collect</h2>
+            <p>We collect only what is strictly necessary:</p>
+            <ul>
+                <li>Your email address, submitted voluntarily through our subscription form</li>
+                <li>The date and time you subscribed</li>
+            </ul>
+            <p>We do not collect names, payment information, IP addresses, browsing behavior, or any other personal data. We do not use cookies for tracking purposes.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-number">03</p>
+            <h2>How We Use Your Email</h2>
+            <p>Your email address is used exclusively to send you:</p>
+            <ul>
+                <li>A one-time verification email to confirm your subscription</li>
+                <li>Updates about new chapter releases and evidence publications</li>
+                <li>Occasional research announcements related to BreakingSilence Press</li>
+            </ul>
+            <p>We will never send you promotional content, advertisements, or third-party offers. Every email we send is directly related to the research and content of this project.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-number">04</p>
+            <h2>Data Sharing</h2>
+            <p>We do not sell, rent, trade, or share your email address with any third party under any circumstances. Your data is stored securely in our private database and is accessible only to the site administrator.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-number">05</p>
+            <h2>Data Retention</h2>
+            <p>Your email address is retained for as long as you remain subscribed. You may request deletion of your data at any time by contacting us directly. Upon request, we will permanently remove your email from our database within 7 days.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-number">06</p>
+            <h2>Your Rights</h2>
+            <p>Regardless of where you are located, you have the right to:</p>
+            <ul>
+                <li>Know what data we hold about you</li>
+                <li>Request correction of inaccurate data</li>
+                <li>Request deletion of your data at any time</li>
+                <li>Withdraw consent to receive emails at any time</li>
+            </ul>
+            <p>To exercise any of these rights, contact us at the address below.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-number">07</p>
+            <h2>Security</h2>
+            <p>Subscriber data is stored in a secured, access-controlled database. Only the site administrator has access. We take reasonable technical precautions to protect your data from unauthorized access, loss, or disclosure.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-number">08</p>
+            <h2>Changes to This Policy</h2>
+            <p>If we make material changes to this policy, we will update the effective date above. Continued use of the subscription service after changes constitutes acceptance of the updated policy.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+            <p class="section-number">09</p>
+            <h2>Contact</h2>
+            <p>For any privacy-related questions, data requests, or to unsubscribe, contact us directly:</p>
+            <div class="contact-card">
+                <p>BreakingSilence Press — Privacy Inquiries</p>
+                <a href="mailto:breakingsilencepress@gmail.com">breakingsilencepress@gmail.com</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Breaking Silence Press. All rights reserved.</p>
+        <a href="index.html">← Return to Homepage</a>
+    </footer>
+
+</body>
+</html>
