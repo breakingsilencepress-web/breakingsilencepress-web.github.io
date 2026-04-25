@@ -33,7 +33,7 @@ searchIcon.addEventListener('click', () => {
 async function getEvidences(){
     evidenceCardData.splice(0, evidenceCardData.length);
     try {
-        const response = await fetch("http://API_URL/evidences-public");
+        const response = await fetch(`${API_URL}/evidences-public`);
         const data = await response.json();
         if (response.ok){
             data.evidences.forEach(evidence => evidenceCardData.push(evidence));
