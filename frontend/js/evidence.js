@@ -5,6 +5,7 @@ const noDocument = document.querySelector('.no-document');
 const evidenceCards = document.querySelector('.evidence-cards');
 const readMorePopup = document.querySelector('.readmore-popup');
 let documentsVisible = [];
+const API_URL = "https://breakingsilencepress-webgithubio-production.up.railway.app";
 evidenceCardData = [];
 
 getEvidences();
@@ -32,7 +33,7 @@ searchIcon.addEventListener('click', () => {
 async function getEvidences(){
     evidenceCardData.splice(0, evidenceCardData.length);
     try {
-        const response = await fetch("http://localhost:3000/evidences-public");
+        const response = await fetch(`${API_URL}/evidences-public`);
         const data = await response.json();
         if (response.ok){
             data.evidences.forEach(evidence => evidenceCardData.push(evidence));
