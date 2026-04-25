@@ -706,6 +706,7 @@ footer {
 <script>
 /* PROGRESS BAR */
 const bar = document.getElementById('progress-bar');
+const API_URL = "https://breakingsilencepress-webgithubio-production.up.railway.app";
 window.addEventListener('scroll', () => {
   const h = document.documentElement;
   bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%';
@@ -782,7 +783,7 @@ document.getElementById('readmoreOverlay').addEventListener('click', function(e)
 /* FETCH + RENDER */
 async function getEvidences() {
   try {
-    const response = await fetch("http://localhost:3000/evidences-public");
+    const response = await fetch(`${API_URL}/evidences-public`);
     const data = await response.json();
     const grid = document.getElementById('evidenceGrid');
     grid.innerHTML = "";
