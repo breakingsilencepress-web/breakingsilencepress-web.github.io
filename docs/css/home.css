@@ -131,6 +131,10 @@ nav {
   text-transform: uppercase;
 }
 
+.logo-section-2{
+  color: var(--amber);
+} 
+
 .nav-links {
   display: flex; align-items: center; gap: 32px;
   list-style: none;
