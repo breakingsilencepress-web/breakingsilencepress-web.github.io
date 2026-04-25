@@ -298,7 +298,7 @@ function renderEvidences(){
         removeBtn.addEventListener('click', async () => {
             removeBtn.disabled = true;
             const id = evidence._id;
-            const response = await fetch(`http://localhost:3000/evidence/${id}`, {
+            const response = await fetch(`${API_URL}/evidence/${id}`, {
                 method: "DELETE",
                 headers: { "Authorization": `Bearer ${localStorage.getItem("adminToken")}` },
             });
