@@ -589,7 +589,7 @@ document.querySelectorAll('[data-target]').forEach(el => statObs.observe(el));
 /* ── EVIDENCE PREVIEW ── */
 async function loadEvidencePreview() {
     try {
-        const response = await fetch("http://localhost:3000/evidences-public");
+        const response = await fetch("https://breakingsilencepress-webgithubio-production.up.railway.app/evidences-public");
         const data = await response.json();
         const grid = document.getElementById('evidenceGrid');
         if (!response.ok || !data.evidences.length) {
