@@ -42,7 +42,7 @@ if(emailButton){
     emailButton.addEventListener('click', async () => {
         if(!emailInput.value) return;
         emailButton.disabled = true;
-        const response = await fetch(`http://${API_URL}/subscribe`, {
+        const response = await fetch(`${API_URL}/subscribe`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
