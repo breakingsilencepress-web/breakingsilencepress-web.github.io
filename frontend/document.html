@@ -439,6 +439,7 @@
     </footer>
 
     <script>
+        const API_URL = "https://breakingsilencepress-webgithubio-production.up.railway.app";
         const params = new URLSearchParams(window.location.search);
         const qr = params.get('qr');
 
@@ -451,7 +452,7 @@
 
         async function loadEvidence(qrCode) {
             try {
-                const response = await fetch('http://localhost:3000/evidences-public');
+                const response = await fetch(`${API_URL}/evidences-public`);
                 const data = await response.json();
                 const docs = data.evidences.filter(e => e.qrCode === qrCode);
 
@@ -553,7 +554,6 @@
             } catch (err) {
                 document.getElementById('loadingState').style.display = 'none';
                 document.getElementById('errorState').style.display = 'block';
-                console.error(err);
             }
         }
     </script>
