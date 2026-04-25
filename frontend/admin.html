@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/admin.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <title>BreakingSilence</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-heading">
+            <div class="logo">
+                <a href="admin.html">BREAKING<span>SILENCE</span></a>
+            </div>
+            <p class="page-name">Admin Panel</p>
+        </div>
+        <div class="sidebar-main">
+            <h3 class="sidebar-section-heading">Main</h3>
+            <button class="dashboard" id="dashBoardBtn" title="Dashboard">
+                <i class="fa-solid fa-home"></i><span>Dashboard</span>
+            </button>
+            <button class="send-email" id="sendEmailBtn" title="Send Email">
+                <i class="fa-solid fa-envelope"></i><span>Send Email</span>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <h3 class="sidebar-section-heading">Content</h3>
+            <button class="evidence-library" id="evidenceLibraryBtn" title="Evidence Library">
+                <i class="fa-solid fa-folder-open"></i><span>Evidence Library</span>
+            </button>
+        </div>
+        <div class="logout-section">
+            <button class="logout-btn" title="Logout">
+            <i class="fa-solid fa-right-from-bracket"></i><span>Logout</span>
+        </button>
+        </div>
+    </div>
+    <div class="main-content-home">
+        <div class="topbar">
+            <h3 class="topbar-heading">Dashboard</h3>
+            <i class="fa-solid fa-user"></i>
+        </div>
+        <section class="main-content-dashboard" style="display: none;">
+            <div class="stats-overview">
+                <div class="card">
+                    <h3 class="stats-heading">Total Subcribers</h3>
+                    <p class="stats-content" id="totalSubs">0</p>
+                    <p class="stat-subtext"><i class="fas fa-arrow-up"></i> 0 this week</p>
+                </div>
+                <div class="card">
+                    <h3 class="stats-heading">Emails Sent</h3>
+                    <p class="stats-content">0</p>
+                    <p class="stat-date">Last: 2 days ago</p>
+                </div>
+                <div class="card">
+                    <h3 class="stats-heading">New Today</h3>
+                    <p class="stats-content" id="newSubsToday">0</p>
+                    <p class="stat-subtext"><i class="fas fa-arrow-up"></i> From yesterday</p>
+                </div>
+            </div>
+            <div class="subscribers-section">
+                <div class="subscribers-section-header">
+                    <h3 class="heading">Subscribers</h3>
+                    <input type="email" placeholder="Search email..." id="emailSearchInput">
+                    <button class="broadcast">Broadcast</button>
+                    <button class="export">Export</button>
+                </div>
+                <div class="subscribers-section-titles">
+                    <p class="email">EMAIL</p>
+                    <p class="date-joined">DATE JOINED</p>
+                    <p class="status">STATUS</p>
+                    <p class="actions">ACTIONS</p>
+                </div>
+                <div class="subscribers">
+                    
+                </div>
+        </section>
+        <section class="main-content-library">
+            <div class="add-evidence-popup">
+                <div class="popup-slide-container">
+                    <div class="add-evidence-popup-wrapper">
+                        <div class="add-evidence-popup-header">
+                            <h3>Add Evidence</h3>
+                            <button class="close-popup-button" onclick="closeAdminPopup()"><i class="fa-solid fa-x"></i></button>
+                        </div>
+                        <div class="add-evidence-popup-tags">
+                            <div class="add-evidence-popup-input">
+                                <label>QR Code</label>
+                                <input type="text" id="qrCodeInput" placeholder="e.g. 1.1" data-field="qrCode">
+                                <p class="error" style="display: none;">You didn't type anything</p>
+                            </div>
+                            <div class="add-evidence-popup-input">
+                                <label>Chapter</label>
+                                <input type="text" id="chapterInput" placeholder="e.g. Chapter 1" data-field="chapter">
+                                <p class="error" style="display: none;">You didn't type anything</p>
+                            </div>
+                        </div>
+                        <div class="add-evidence-popup-input">
+                            <label>Heading</label>
+                            <input type="text" id="headingInput" placeholder="Enter evidence heading..." data-field="heading">
+                            <p class="error" style="display: none;">You didn't type anything</p>
+                        </div>
+                        <div class="add-evidence-popup-input">
+                            <label>Date</label>
+                            <input type="date" id="dateInput" data-field="date">
+                            <p class="error" style="display: none;">You didn't type anything</p>
+                        </div>
+                        <div class="add-evidence-popup-input">
+                            <label>Description</label>
+                            <textarea id="desInput" placeholder="Enter evidence description..." rows="3" data-field="description"></textarea>
+                            <p class="error" style="display: none;">You didn't type anything</p>
+                        </div>
+                        <div class="add-evidence-popup-tags">
+                            <div class="add-evidence-popup-input">
+                                <label>Download URL</label>
+                                <input type="text" id="downloadLinkInput" placeholder="https://..." data-field="downloadUrl">
+                                <p class="error" style="display: none;">You didn't type anything</p>
+                            </div>
+                            <div class="add-evidence-popup-input">
+                                <label>Read URL</label>
+                                <input type="text" id="readLinkInput" placeholder="https://..." data-field="readUrl">
+                                <p class="error" style="display: none;">You didn't type anything</p>
+                            </div>
+                        </div>
+                        <div class="add-evidence-popup-footer">
+                            <button class="cancel-popup-button" onclick="closeAdminPopup()">Cancel</button>
+                            <button class="next-popup-button">Next</button>
+                        </div>
+                    </div>
+                    <div class="document-details-popup-wrapper">
+                        <div class="document-details-popup-header">
+                            <h3>Document Details</h3>
+                            <button class="close-popup-button" onclick="closeAdminPopup()"><i class="fa-solid fa-x"></i></button>
+                        </div>
+                        <div class="document-details-popup-input">
+                            <label>SOURCE</label>
+                            <input type="text" id="sourceInput" placeholder="e.g. Federal Bureau" data-field="source">
+                            <p class="error" style="display: none;">You didn't type anything</p>
+                        </div>
+                        <div class="document-details-popup-input">
+                            <label>FILE TYPE</label>
+                            <input type="text" id="sourceInput" placeholder="e.g. Multi-part PDF" data-field="fileType">
+                            <p class="error" style="display: none;">You didn't type anything</p>
+                        </div>
+                        <div class="document-details-popup-input">
+                            <label>COPYRIGHT STATUS</label>
+                            <input type="text" id="copyrightInput" placeholder="e.g. Multi-part PDF" data-field="copyRightStatus">
+                            <p class="error" style="display: none;">You didn't type anything</p>
+                        </div>
+                        <div class="document-details-popup-input">
+                            <label>DOWNLOAD DATE</label>
+                            <input type="date" id="downloadDataInput" data-field="downloadDate">
+                            <p class="error" style="display: none;">You didn't type anything</p>
+                        </div>
+                        <div class="document-details-popup-input">
+                            <label>ORIGINAL URL</label>
+                            <input type="text" id="originalUrlInput" placeholder="https://..." data-field="originalUrl">
+                            <p class="error" style="display: none;">You didn't type anything</p>
+                        </div>
+                        <div class="document-details-popup-input">
+                            <label>DESCRIPTION</label>
+                            <input type="text" id="descriptionInput" placeholder="About the document..." data-field="moreDescription">
+                            <p class="error" style="display: none;">You didn't type anything</p>
+                        </div>
+                        <div class="document-details-popup-input">
+                            <label>RELEVANCE</label>
+                            <textarea id="relevanceInput" placeholder="Why this document matters..." rows="3" data-field="relevance"></textarea>
+                            <p class="error" style="display: none;">You didn't type anything</p>
+                        </div>
+                        <div class="document-details-popup-footer">
+                            <button class="cancel-popup-button" onclick="closeAdminPopup()">Cancel</button>
+                            <button class="back-popup-button">Back</button>
+                            <button class="submit-popup-button"><i class="fa-solid fa-plus"></i>Add Evidence</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="library-search-bar">
+                <input type="text" placeholder="Search documents..." id="evidenceSearchInput">
+                <p class="evidence-search-error" style="display: none">You didn't type anything</p>
+            </div>
+            <select class="chapter-select">
+                <option>All Chapters</option>
+                <option>Chapter 1</option>
+                <option>Chapter 2</option>
+            </select>
+            <button class="add-evidence-button"><i class="fa-solid fa-plus"></i>Add Evidence</button>
+            <div class="evidence-current-date">
+                <label>Total Document: <span id="totalDocuments">0</span></label>
+                <label>Showing: <span id="showingDocuments">4</span></label>
+            </div>
+            <div class="admin-evidence-cards">
+
+            </div>
+        </section>
+        <section class="main-content-send-email">
+            <h3 class="heading">Send Email</h3>
+            <div class="send-email-wrapper">
+                <div class="send-email-popup-inputs">
+                    <label class="to">To<span> All Subscribers</span></label>
+                    <label class="from">From <span>Breakingsilencepress</span></label>
+                    <span class="separator"></span>
+                    <div class="send-email-popup-input">
+                        <label>Subject</label>
+                        <input type="text" id="subjectInput" placeholder="Email subject..." data-field="subject">
+                        <p class="error" style="display: none;">You didn't type anything</p>
+                    </div>
+                    <div class="send-email-popup-input" id="emailMessage">
+                        <label>Message</label>
+                        <textarea id="msgInput" placeholder="Write your message..." rows="3" data-field="msg" style="height: 100px;"></textarea>
+                        <p class="error" style="display: none;">You didn't type anything</p>
+                    </div>
+                    <div class="send-email-cta">
+                        <button class="cancel">Cancel</button>
+                        <button class="send" id="sendMail">Send</button>
+                    </div>
+                </div>
+            </div>
+            <div class="sent-emails" id="sentEmailsList">
+                <div class="email">
+                    <div class="email-data">
+                        <p class="heading">New Chapter Released</p>
+                        <p class="date">Apr 16, 2026</p>
+                    </div> 
+                    <p class="recipients">28 recipients</p>
+                </div>
+                <div class="email">
+                    <div class="email-data">
+                        <p class="heading">Welcome to BreakingSilence</p>
+                        <p class="date">Apr 14, 2026</p>
+                    </div> 
+                    <p class="recipients">28 recipients</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="./js/admin.js"></script>
+</body>
+</html>
