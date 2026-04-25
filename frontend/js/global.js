@@ -11,6 +11,7 @@ const loginButton = document.querySelector('.login-button');
 const hamburger = document.getElementById('hamburger');
 const closeHamburger = document.getElementById('closeHamburger');
 const hamburgerContent = document.querySelector('.hamburger-content');
+const API_URL = "https://breakingsilencepress-webgithubio-production.up.railway.app";
 
 if(hamburger){
     hamburger.addEventListener('click', () => {
@@ -41,7 +42,7 @@ if(emailButton){
     emailButton.addEventListener('click', async () => {
         if(!emailInput.value) return;
         emailButton.disabled = true;
-        const response = await fetch("http://localhost:3000/subscribe", {
+        const response = await fetch(`${API_URL}/subscribe`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -87,7 +88,7 @@ if(popUpButton){
 
 if(loginButton){
     loginButton.addEventListener('click', async () => {
-        const response = await fetch("http://localhost:3000/adminlogin", {
+        const response = await fetch(`${API_URL}/adminlogin`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
