@@ -29,6 +29,7 @@ const sendMail = document.getElementById('sendMail');
 const emailSubject = document.getElementById('subjectInput');
 const emailMessage = document.getElementById('msgInput');
 const evidenceCardData = [];
+const API_URL = "https://breakingsilencepress-webgithubio-production.up.railway.app";
 let isEditing = false;
 let editingId = null;
 let editingEvidence = null;
@@ -55,7 +56,7 @@ sendMail.addEventListener('click', async () => {
     sendMail.disabled = true;
     sendMail.textContent = "Sending...";
     
-    const response = await fetch("http://localhost:3000/send-email", {
+    const response = await fetch(`${API_URL}/send-email`, {
         method: "POST",
         headers: { 
             "Content-Type": "application/json",
@@ -111,7 +112,7 @@ async function getSubscribers() {
     try {
         allSubscribers.splice(0, allSubscribers.length);
         newSubs = 0; // reset here, not in renderSubscribers
-        const response = await fetch("http://localhost:3000/subscribers", {
+        const response = await fetch(`${API_URL}/subscribers`, {
             headers: { "Authorization": `Bearer ${localStorage.getItem("adminToken")}` },
         });
         if (!response.ok) throw new Error("Failed to fetch subscribers");
@@ -199,7 +200,7 @@ function renderSubscribers(list = allSubscribers){
 
         deleteBtn.addEventListener('click', async () => {
             deleteBtn.disabled = true;
-            const response = await fetch(`http://localhost:3000/subscriber/${id}`, {
+            const response = await fetch(`${API_URL}/subscriber/${id}`, {
                 method: "DELETE",
                 headers: { "Authorization": `Bearer ${localStorage.getItem("adminToken")}` },
             });
@@ -227,7 +228,7 @@ function searchEmail() {
 
 async function getEmailLogs() {
     try {
-        const response = await fetch("http://localhost:3000/email-logs", {
+        const response = await fetch(`${API_URL}/email-logs`, {
             headers: { "Authorization": `Bearer ${localStorage.getItem("adminToken")}` }
         });
         const data = await response.json();
@@ -297,7 +298,7 @@ function renderEvidences(){
         removeBtn.addEventListener('click', async () => {
             removeBtn.disabled = true;
             const id = evidence._id;
-            const response = await fetch(`http://localhost:3000/evidence/${id}`, {
+            const response = await fetch(`${API_URL}/evidence/${id}`, {
                 method: "DELETE",
                 headers: { "Authorization": `Bearer ${localStorage.getItem("adminToken")}` },
             });
@@ -331,7 +332,7 @@ function renderEvidences(){
 async function getEvidences(){
     evidenceCardData.splice(0, evidenceCardData.length);
     try {
-        const response = await fetch("http://localhost:3000/evidences", {
+        const response = await fetch(`${API_URL}/evidences`, {
             headers: { "Authorization": `Bearer ${localStorage.getItem("adminToken")}` },
         });
         const data = await response.json();
@@ -349,7 +350,7 @@ async function getEvidences(){
 }
 
 async function sendEvidenceData(evidence){
-    const response = await fetch("http://localhost:3000/evidence", {
+    const response = await fetch(`${API_URL}/evidence`, {
         method: "POST",
         headers: { 
             "Content-Type": "application/json",
@@ -383,11 +384,10 @@ submitPopupBtn.addEventListener('click', async () => {
     let allValid = 0;
     if(isEditing){
         const updatedEvidence = {};
-        console.log(updatedEvidence);
         adminPopupInputs.forEach(input => {
             updatedEvidence[input.dataset.field] = input.value.trim();
         });
-        const response = await fetch(`http://localhost:3000/evidence/${editingId}`, {
+        const response = await fetch(`${API_URL}/evidence/${editingId}`, {
             method: "PUT",
             headers: { 
                 "Authorization": `Bearer ${localStorage.getItem("adminToken")}`, 
