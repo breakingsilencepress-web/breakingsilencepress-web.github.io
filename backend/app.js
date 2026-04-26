@@ -37,9 +37,12 @@ app.use(express.json());
 app.use(cors({
     origin: ['https://breakingsilencepress-web.github.io', 'http://localhost:5500', 'http://127.0.0.1:5500']
 }));
+app.set('trust proxy', 1);
 
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASS
