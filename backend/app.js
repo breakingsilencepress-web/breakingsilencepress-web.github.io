@@ -6,7 +6,6 @@ const joi = require('joi');
 const cors = require('cors');
 const { error } = require('node:console');
 const bcrypt = require('bcrypt');
-const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const rateLimit = require('express-rate-limit');
 const EmailLog = require('./models/emailLog.js');
@@ -30,6 +29,8 @@ const evidenceSchema = joi.object({
     moreDescription: joi.string().required(),
     relevance: joi.string().required()
 });
+const { Resend } = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 
 const app = express();
@@ -38,16 +39,6 @@ app.use(cors({
     origin: ['https://breakingsilencepress-web.github.io', 'http://localhost:5500', 'http://127.0.0.1:5500']
 }));
 app.set('trust proxy', 1);
-
-const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS
-    }
-});
 
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -101,8 +92,8 @@ app.post('/send-email', checkAuth, async (req, res, next) => {
             return res.status(400).json({ error: "Subject and message are required!" });
         }
         for(const subscriber of subscribers){
-            await transporter.sendMail({
-                from: process.env.GMAIL_USER,
+            await resend.emails.send({
+                from: 'BreakingSilence Press <onboarding@resend.dev>',
                 to: subscriber.email,
                 subject: subject,
                 html: `
@@ -181,8 +172,8 @@ app.post("/subscribe", limiter,  async (req, res, next) => {
         const subscriber = new Subscriber(req.body);
         subscriber.verificationToken = token;
         await subscriber.save();
-        transporter.sendMail({
-            from: process.env.GMAIL_USER,
+        resend.emails.send({
+            from: 'BreakingSilence Press <onboarding@resend.dev>',
             to: subscriber.email,
             subject: "Verify your email",
             html: `
