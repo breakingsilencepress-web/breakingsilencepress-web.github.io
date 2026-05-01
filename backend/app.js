@@ -143,6 +143,7 @@ app.get('/verify/:token', async (req, res, next) => {
         const verifiedSubscriber = await Subscriber.findOne({ verificationToken: token });
         if(!verifiedSubscriber){
             return res.status(404).json({ error: "Invalid token" });
+            res.redirect(`${process.env.FRONTEND_URL}/404.html`);
         }
         verifiedSubscriber.verified = true;
         verifiedSubscriber.verificationToken = undefined;
