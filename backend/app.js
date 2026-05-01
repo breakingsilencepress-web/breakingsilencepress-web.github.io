@@ -171,6 +171,7 @@ app.post("/subscribe", limiter,  async (req, res, next) => {
         }
         const subscriber = new Subscriber(req.body);
         subscriber.verificationToken = token;
+        subscriber.verified = true; // add this line
         await subscriber.save();
         resend.emails.send({
             from: 'BreakingSilence Press <onboarding@resend.dev>',
