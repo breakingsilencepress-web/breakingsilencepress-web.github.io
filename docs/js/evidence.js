@@ -70,6 +70,8 @@ function renderEvidences(){
         </div>
         <button class="read-more" id="readMoreBtn">Read More</button>`;
         evidenceCards.appendChild(card);
+        card.querySelector('.download').addEventListener('click', () => window.open(evidence.downloadUrl, '_blank'));
+        card.querySelector('.read').addEventListener('click', () => window.open(evidence.readUrl, '_blank'));
         const readMoreBtn = card.querySelector('.read-more');
         readMoreBtn.addEventListener('click', () => {
             readMorePopup.classList.add('show');
