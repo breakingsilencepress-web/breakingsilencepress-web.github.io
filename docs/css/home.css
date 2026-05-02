@@ -158,7 +158,7 @@ nav {
 
 .nav-cta {
   background: var(--amber);
-  color: #0B0C1A;
+  color: #0B0C1A !important;
   padding: 8px 20px;
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
@@ -176,7 +176,7 @@ nav {
   background: var(--amber-light);
   box-shadow: var(--shadow-btn-h);
   transform: translateY(-1px);
-  color: #0B0C1A;
+  color: #0B0C1A !important;
 }
 
 /* ── HERO ── */
