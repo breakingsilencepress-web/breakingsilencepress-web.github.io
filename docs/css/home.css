@@ -163,6 +163,7 @@ nav {
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
   font-size: 10px;
+  font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 700;
@@ -175,6 +176,7 @@ nav {
   background: var(--amber-light);
   box-shadow: var(--shadow-btn-h);
   transform: translateY(-1px);
+  color: #0B0C1A;
 }
 
 /* ── HERO ── */
