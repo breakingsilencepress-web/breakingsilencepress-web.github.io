@@ -78,6 +78,7 @@ function renderEvidences(){
         });
         card.querySelector('.read').addEventListener('click', () => window.open(evidence.readUrl, '_blank'));
         const readMoreBtn = card.querySelector('.read-more');
+        
         readMoreBtn.addEventListener('click', () => {
             readMorePopup.classList.add('show');
             const readmoreWrapper = document.createElement('div');
