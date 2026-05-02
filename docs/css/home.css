@@ -179,6 +179,18 @@ nav {
   color: #0B0C1A !important;
 }
 
+nav .nav-cta,
+nav .nav-links .nav-cta,
+.nav-links a.nav-cta {
+  color: #0B0C1A !important;
+}
+
+nav .nav-cta:hover,
+nav .nav-links .nav-cta:hover,
+.nav-links a.nav-cta:hover {
+  color: #0B0C1A !important;
+}
+
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
