@@ -124,15 +124,39 @@ nav {
   height: 1px; background: var(--amber);
 }
 .nav-cta {
-  background: var(--amber); color: var(--bg-page);
-  padding: 8px 20px; border-radius: var(--radius-sm);
-  font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700;
-  text-decoration: none; border: none; cursor: pointer;
+  background: var(--amber);
+  color: #0B0C1A !important;
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  border: none; cursor: pointer;
   box-shadow: var(--shadow-btn);
   transition: background var(--ease), box-shadow var(--ease), transform var(--ease);
 }
-.nav-cta:hover { background: var(--amber-light); box-shadow: var(--shadow-btn-h); transform: translateY(-1px); }
+.nav-cta:hover {
+  background: var(--amber-light);
+  box-shadow: var(--shadow-btn-h);
+  transform: translateY(-1px);
+  color: #0B0C1A !important;
+}
+
+nav .nav-cta,
+nav .nav-links .nav-cta,
+.nav-links a.nav-cta {
+  color: #0B0C1A !important;
+}
+
+nav .nav-cta:hover,
+nav .nav-links .nav-cta:hover,
+.nav-links a.nav-cta:hover {
+  color: #0B0C1A !important;
+}
 
 /* PAGE HEADER */
 .page-header {
@@ -140,6 +164,7 @@ nav {
   max-width: 1200px; margin: 0 auto;
   position: relative;
 }
+
 .page-header::after {
   content: '';
   position: absolute; bottom: 0; left: 40px; right: 40px;
