@@ -725,7 +725,7 @@ body {
 /* ─── Add Evidence Popup ────────────────────────────── */
 
 .add-evidence-popup {
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: flex-start;
     align-items: center;
