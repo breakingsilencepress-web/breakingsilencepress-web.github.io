@@ -65,13 +65,15 @@ function renderEvidences(){
         <p class="date"><i class="fa-solid fa-calendar"></i>${date}</p>
         <p class="card-info">${evidence.description}</p>
         <div class="card-cta">
-            <a href="${evidence.downloadUrl}" download class="download"><i class="fa-solid fa-download"></i> Download</a>
+            <a class="download"><i class="fa-solid fa-download"></i> Download</a>
             <button class="read"><i class="fa-brands fa-readme"></i> Read Online</button>
         </div>
         <button class="read-more" id="readMoreBtn">Read More</button>`;
         evidenceCards.appendChild(card);
+        const downloadBtn = card.querySelector('.download');
+        downloadBtn.href = evidence.downloadUrl;
+        downloadBtn.setAttribute('download', '');
         card.querySelector('.read').addEventListener('click', () => window.open(evidence.readUrl, '_blank'));
-        const readMoreBtn = card.querySelector('.read-more');
         
         readMoreBtn.addEventListener('click', () => {
             readMorePopup.classList.add('show');
