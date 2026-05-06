@@ -76,7 +76,7 @@ function renderEvidences(){
         <p class="date"><i class="fa-solid fa-calendar"></i>${date}</p>
         <p class="card-info">${evidence.description}</p>
         <div class="card-cta">
-            <a class="download"><i class="fa-solid fa-download"></i> Download</a>
+            <a href="evidence/hornback-case.html" class="btn-ev-readmore">Read More →</a>
             <button class="read"><i class="fa-brands fa-readme"></i> Read Online</button>
         </div>
         <button class="read-more" id="readMoreBtn">Read More</button>`;
