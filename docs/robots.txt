@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://breakingsilencepress-web.github.io/sitemap.xml
