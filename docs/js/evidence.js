@@ -1,36 +1,46 @@
-const documentNames = document.querySelectorAll('.evidence-cards-heading');
 const searchBar = document.getElementById('searchBarInput');
 const searchIcon = document.getElementById('searchIcon');
 const noDocument = document.querySelector('.no-document');
 const evidenceCards = document.querySelector('.evidence-cards');
 const readMorePopup = document.querySelector('.readmore-popup');
+let documentNames = [];
 let documentsVisible = [];
 const API_URL = "https://breakingsilencepress-webgithubio-production.up.railway.app";
 evidenceCardData = [];
 
 getEvidences();
 
-if(searchIcon){
-    searchIcon.addEventListener('click', () => {
-        documentsVisible = [];
-        documentNames.forEach(doc => {
-            if(!doc.textContent.toLowerCase().startsWith(searchBar.value.toLowerCase())){
-                doc.closest('.card').classList.add('hide');
-            } else {
-                doc.closest('.card').classList.remove('hide');
-            }
-            if(!doc.closest('.card').classList.contains('hide')){
-                documentsVisible.push(doc);
-            }
-    
-        });
-        if(documentsVisible.length == 0){
-            noDocument.style.display = "flex";
+function performSearch() {
+    documentsVisible = [];
+    documentNames.forEach(doc => {
+        if(!doc.textContent.toLowerCase().startsWith(searchBar.value.toLowerCase())){
+            doc.closest('.card').classList.add('hide');
         } else {
-            noDocument.style.display = "none";
+            doc.closest('.card').classList.remove('hide');
+        }
+        if(!doc.closest('.card').classList.contains('hide')){
+            documentsVisible.push(doc);
         }
     });
-};
+    if(documentsVisible.length == 0){
+        noDocument.style.display = "flex";
+    } else {
+        noDocument.style.display = "none";
+    }
+}
+
+if(searchIcon){
+    searchIcon.addEventListener('click', performSearch);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchTerm = urlParams.get('q');
+    if (searchTerm) {
+        searchBar.value = searchTerm;
+        performSearch();
+    }
+});
 async function getEvidences(){
     evidenceCardData.splice(0, evidenceCardData.length);
     try {
@@ -46,6 +56,7 @@ async function getEvidences(){
 }
 
 function renderEvidences(){
+    documentNames = document.querySelectorAll('.evidence-cards-heading');
     grid.innerHTML = "";
     evidenceCards.innerHTML = "";
     evidenceCardData.forEach(evidence => {
