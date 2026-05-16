@@ -10,6 +10,21 @@ evidenceCardData = [];
 
 getEvidences();
 
+async function downloadFile(url, filename) {
+    try {
+        const response = await fetch(url);
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename || url.split('/').pop();
+        a.click();
+        URL.revokeObjectURL(blobUrl);
+    } catch (err) {
+        window.open(url, '_blank');
+    }
+}
+
 function performSearch() {
     documentsVisible = [];
     documentNames.forEach(doc => {
@@ -41,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
         performSearch();
     }
 });
+
 async function getEvidences(){
     evidenceCardData.splice(0, evidenceCardData.length);
     try {
@@ -76,18 +92,22 @@ function renderEvidences(){
         <div class="card-cta">
             <a href="evidence/hornback-case.html" class="btn-ev-readmore">Read More →</a>
             <button class="read"><i class="fa-brands fa-readme"></i> Read Online</button>
-            <a class="download btn-ev-download" download>Download</a> 
+            <button class="download btn-ev-download">Download</button>
         </div>
         <button class="read-more readMoreBtn">Read More</button>`;
         evidenceCards.appendChild(card);
+
         const downloadBtn = card.querySelector('.download');
         if (downloadBtn) {
-            downloadBtn.href = evidence.downloadUrl;
-            downloadBtn.setAttribute('download', '');
+            downloadBtn.addEventListener('click', () => {
+                downloadFile(evidence.downloadUrl, evidence.heading);
+            });
         }
+
         card.querySelector('.read').addEventListener('click', () => window.open(evidence.readUrl, '_blank'));
-            const readMoreBtn = card.querySelector('.readMoreBtn');
-            readMoreBtn.addEventListener('click', () => {
+
+        const readMoreBtn = card.querySelector('.readMoreBtn');
+        readMoreBtn.addEventListener('click', () => {
             readMorePopup.classList.add('show');
             const readmoreWrapper = document.createElement('div');
             readmoreWrapper.className = "readmore-wrapper";
@@ -132,6 +152,7 @@ function renderEvidences(){
                 <button class="readmore-close">Close</button>
                 <button class="readmore-download">Download</button>
             </div>`
+
             const closeReadMorePopup = readmoreWrapper.querySelector('.close-btn');
             const closeReadMorePopupButton = readmoreWrapper.querySelector('.readmore-close');
 
@@ -146,15 +167,14 @@ function renderEvidences(){
                     readMorePopup.classList.remove("show")
                 });
             }
+
             readMorePopup.innerHTML = "";
             readMorePopup.appendChild(readmoreWrapper);
+
             const readMoreDownloadBtn = readmoreWrapper.querySelector('.readmore-download');
             if (readMoreDownloadBtn) {
                 readMoreDownloadBtn.addEventListener('click', () => {
-                    const a = document.createElement('a');
-                    a.href = evidence.downloadUrl;
-                    a.setAttribute('download', '');
-                    a.click();
+                    downloadFile(evidence.downloadUrl, evidence.heading);
                 });
             }
         });
