@@ -11,9 +11,8 @@ evidenceCardData = [];
 getEvidences();
 
 async function downloadFile(url, filename) {
-    window.location.href = `${API_URL}/download?url=${encodeURIComponent(url)}&filename=${encodeURIComponent(filename || url.split('/').pop())}`;
+    window.open(`${API_URL}/download?url=${encodeURIComponent(url)}&filename=${encodeURIComponent(filename || url.split('/').pop())}`, '_blank');
 }
-
 function performSearch() {
     documentsVisible = [];
     documentNames.forEach(doc => {
