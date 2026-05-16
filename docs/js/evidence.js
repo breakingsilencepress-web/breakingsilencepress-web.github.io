@@ -18,8 +18,10 @@ async function downloadFile(url, filename) {
         const a = document.createElement('a');
         a.href = blobUrl;
         a.download = filename || url.split('/').pop();
+        document.body.appendChild(a); // ← must be in DOM for Firefox
         a.click();
-        URL.revokeObjectURL(blobUrl);
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 1000); // ← delay revoke
     } catch (err) {
         window.open(url, '_blank');
     }
