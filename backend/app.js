@@ -9,7 +9,6 @@ const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const rateLimit = require('express-rate-limit');
 const EmailLog = require('./models/emailLog.js');
-const https = require('https');
 require('dotenv').config();
 const subscriberSchema = joi.object({
     email: joi.string().email().required()
@@ -141,18 +140,18 @@ app.get('/evidences', checkAuth, async (req, res, next) => {
 app.get('/download', async (req, res, next) => {
     try {
         const { url, filename } = req.query;
-        if (!url) {
-            return res.status(400).json({ error: "URL is required" });
-        }
-        const parsedUrl = new URL(url);
-        const name = filename || parsedUrl.pathname.split('/').pop() || 'download.pdf';
-        https.get(url, (fileRes) => {
-            res.setHeader('Content-Disposition', `attachment; filename="${name}"`);
-            res.setHeader('Content-Type', fileRes.headers['content-type'] || 'application/octet-stream');
-            fileRes.pipe(res);
-        }).on('error', (err) => {
-            next(err);
-        });
+        if (!url) return res.status(400).json({ error: "URL is required" });
+
+        const name = filename || url.split('/').pop() || 'download.pdf';
+
+        const fetchRes = await fetch(url);
+        if (!fetchRes.ok) return res.status(502).json({ error: "Failed to fetch file" });
+
+        res.setHeader('Content-Disposition', `attachment; filename="${name}"`);
+        res.setHeader('Content-Type', fetchRes.headers.get('content-type') || 'application/octet-stream');
+
+        const { Readable } = require('stream');
+        Readable.fromWeb(fetchRes.body).pipe(res);
     } catch(err) {
         next(err);
     }
