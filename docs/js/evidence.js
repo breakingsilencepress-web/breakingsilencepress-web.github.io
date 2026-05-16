@@ -11,20 +11,7 @@ evidenceCardData = [];
 getEvidences();
 
 async function downloadFile(url, filename) {
-    try {
-        const response = await fetch(url);
-        const blob = await response.blob();
-        const blobUrl = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = blobUrl;
-        a.download = filename || url.split('/').pop();
-        document.body.appendChild(a); // ← must be in DOM for Firefox
-        a.click();
-        document.body.removeChild(a);
-        setTimeout(() => URL.revokeObjectURL(blobUrl), 1000); // ← delay revoke
-    } catch (err) {
-        window.open(url, '_blank');
-    }
+    window.location.href = `${API_URL}/download?url=${encodeURIComponent(url)}&filename=${encodeURIComponent(filename || url.split('/').pop())}`;
 }
 
 function performSearch() {
