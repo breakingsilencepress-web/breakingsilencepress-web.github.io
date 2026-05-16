@@ -142,7 +142,7 @@ app.get('/download', async (req, res, next) => {
         const { url, filename } = req.query;
         if (!url) return res.status(400).json({ error: "URL is required" });
 
-        const name = filename || url.split('/').pop() || 'download.pdf';
+        const name = (filename || url.split('/').pop() || 'download.pdf').replace(/[^\w\s.\-]/g, '_').trim();
 
         const fetchRes = await fetch(url);
         if (!fetchRes.ok) return res.status(502).json({ error: "Failed to fetch file" });
