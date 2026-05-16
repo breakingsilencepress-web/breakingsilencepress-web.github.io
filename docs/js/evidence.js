@@ -11,7 +11,10 @@ evidenceCardData = [];
 getEvidences();
 
 async function downloadFile(url, filename) {
-    window.open(`${API_URL}/download?url=${encodeURIComponent(url)}&filename=${encodeURIComponent(filename || url.split('/').pop())}`, '_blank');
+    const fullUrl = url.startsWith('./') 
+        ? `https://breakingsilencepress-web.github.io/${url.slice(2)}`
+        : url;
+    window.open(`${API_URL}/download?url=${encodeURIComponent(fullUrl)}&filename=${encodeURIComponent(filename || fullUrl.split('/').pop())}`, '_blank');
 }
 function performSearch() {
     documentsVisible = [];
