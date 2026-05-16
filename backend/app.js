@@ -142,7 +142,9 @@ app.get('/download', async (req, res, next) => {
         const { url, filename } = req.query;
         if (!url) return res.status(400).json({ error: "URL is required" });
 
-        const name = (filename || url.split('/').pop() || 'download.pdf').replace(/[^\w\s.\-]/g, '_').trim();
+        const name = (filename || url.split('/').pop() || 'download.pdf')
+            .replace(/["\r\n]/g, '')
+            .trim();
 
         const fetchRes = await fetch(url);
         if (!fetchRes.ok) return res.status(502).json({ error: "Failed to fetch file" });
@@ -150,8 +152,8 @@ app.get('/download', async (req, res, next) => {
         const buffer = await fetchRes.arrayBuffer();
         const data = Buffer.from(buffer);
 
-        res.setHeader('Content-Disposition', `attachment; filename="${name}"`);
-        res.setHeader('Content-Type', fetchRes.headers.get('content-type') || 'application/octet-stream');
+        res.setHeader('Content-Disposition', `attachment; filename*=UTF-8''${encodeURIComponent(name)}`);
+        res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Length', data.length);
         res.end(data);
     } catch(err) {
