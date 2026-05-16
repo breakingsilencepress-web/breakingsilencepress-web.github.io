@@ -147,11 +147,13 @@ app.get('/download', async (req, res, next) => {
         const fetchRes = await fetch(url);
         if (!fetchRes.ok) return res.status(502).json({ error: "Failed to fetch file" });
 
+        const buffer = await fetchRes.arrayBuffer();
+        const data = Buffer.from(buffer);
+
         res.setHeader('Content-Disposition', `attachment; filename="${name}"`);
         res.setHeader('Content-Type', fetchRes.headers.get('content-type') || 'application/octet-stream');
-
-        const { Readable } = require('stream');
-        Readable.fromWeb(fetchRes.body).pipe(res);
+        res.setHeader('Content-Length', data.length);
+        res.end(data);
     } catch(err) {
         next(err);
     }
