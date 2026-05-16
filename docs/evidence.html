@@ -811,7 +811,7 @@ document.getElementById('rmDownloadBtn').onclick = () => {
         ? `https://breakingsilencepress-web.github.io/${url.slice(2)}`
         : url;
     const a = document.createElement('a');
-    a.href = `${API_URL}/download?url=${encodeURIComponent(fullUrl)}&filename=${encodeURIComponent(evidence.heading || fullUrl.split('/').pop())}`;
+    a.href = `${API_URL}/download?url=${encodeURIComponent(fullUrl)}&filename=${encodeURIComponent(fullUrl.split('/').pop())}`;
     a.target = '_blank';
     document.body.appendChild(a);
     a.click();
@@ -870,7 +870,7 @@ async function getEvidences() {
             ? `https://breakingsilencepress-web.github.io/${url.slice(2)}`
             : url;
         const a = document.createElement('a');
-        a.href = `${API_URL}/download?url=${encodeURIComponent(fullUrl)}&filename=${encodeURIComponent(filename || fullUrl.split('/').pop())}`;
+           a.href = `${API_URL}/download?url=${encodeURIComponent(fullUrl)}&filename=${encodeURIComponent(fullUrl.split('/').pop())}`;
         a.target = '_blank';
         document.body.appendChild(a);
         a.click();
