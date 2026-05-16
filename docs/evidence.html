@@ -740,9 +740,11 @@ footer {
 
 <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+<script>
+  const API_URL = "https://breakingsilencepress-webgithubio-production.up.railway.app";
+</script>
 <script src="./js/evidence.js"></script>
 <script>
-/* PROGRESS BAR */
 const bar = document.getElementById('progress-bar');
 window.addEventListener('scroll', () => {
   const h = document.documentElement;
@@ -803,7 +805,18 @@ function openReadMore(evidence) {
   document.getElementById('rmUrl').textContent = evidence.originalUrl;
   document.getElementById('rmDesc').textContent = evidence.moreDescription;
   document.getElementById('rmRelevance').textContent = evidence.relevance;
-  document.getElementById('rmDownloadBtn').onclick = () => window.open(evidence.downloadUrl, '_blank');
+document.getElementById('rmDownloadBtn').onclick = () => {
+    const url = evidence.downloadUrl;
+    const fullUrl = url.startsWith('./') 
+        ? `https://breakingsilencepress-web.github.io/${url.slice(2)}`
+        : url;
+    const a = document.createElement('a');
+    a.href = `${API_URL}/download?url=${encodeURIComponent(fullUrl)}&filename=${encodeURIComponent(evidence.heading || fullUrl.split('/').pop())}`;
+    a.target = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+};
   document.getElementById('readmoreOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -842,7 +855,7 @@ async function getEvidences() {
           <div class="evidence-meta">${date}</div>
           <div class="evidence-desc">${evidence.description}</div>
           <div class="evidence-actions">
-            <a href="${evidence.downloadUrl}" target="_blank" class="btn-evidence btn-ev-primary">↓ Download PDF</a>
+            <button class="btn-evidence btn-ev-primary" data-download="${evidence.downloadUrl}" data-filename="${evidence.heading}">↓ Download PDF</button>
             <a href="${evidence.readUrl}" target="_blank" class="btn-evidence btn-ev-ghost">↗ Read Online</a>
             <button class="btn-ev-readmore">Read More →</button>
           </div>
@@ -850,6 +863,19 @@ async function getEvidences() {
       grid.appendChild(card);
       observer.observe(card);
       card.querySelector('.btn-ev-readmore').addEventListener('click', () => openReadMore(evidence));
+      card.querySelector('[data-download]').addEventListener('click', function() {
+        const url = this.dataset.download;
+        const filename = this.dataset.filename;
+        const fullUrl = url.startsWith('./') 
+            ? `https://breakingsilencepress-web.github.io/${url.slice(2)}`
+            : url;
+        const a = document.createElement('a');
+        a.href = `${API_URL}/download?url=${encodeURIComponent(fullUrl)}&filename=${encodeURIComponent(filename || fullUrl.split('/').pop())}`;
+        a.target = '_blank';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    });        
     });
   } catch(err) {
     console.log("Evidence load error: " + err.message);
