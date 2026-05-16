@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const rateLimit = require('express-rate-limit');
 const EmailLog = require('./models/emailLog.js');
+const https = require('https');
 require('dotenv').config();
 const subscriberSchema = joi.object({
     email: joi.string().email().required()
@@ -133,6 +134,26 @@ app.get('/evidences', checkAuth, async (req, res, next) => {
         const evidences = await Evidence.find();
         res.status(200).json({evidences});
     } catch(err){
+        next(err);
+    }
+});
+
+app.get('/download', async (req, res, next) => {
+    try {
+        const { url, filename } = req.query;
+        if (!url) {
+            return res.status(400).json({ error: "URL is required" });
+        }
+        const parsedUrl = new URL(url);
+        const name = filename || parsedUrl.pathname.split('/').pop() || 'download.pdf';
+        https.get(url, (fileRes) => {
+            res.setHeader('Content-Disposition', `attachment; filename="${name}"`);
+            res.setHeader('Content-Type', fileRes.headers['content-type'] || 'application/octet-stream');
+            fileRes.pipe(res);
+        }).on('error', (err) => {
+            next(err);
+        });
+    } catch(err) {
         next(err);
     }
 });
