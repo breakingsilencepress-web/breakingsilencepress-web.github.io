@@ -56,8 +56,6 @@ async function getEvidences(){
 }
 
 function renderEvidences(){
-    documentNames = document.querySelectorAll('.evidence-cards-heading');
-    grid.innerHTML = "";
     evidenceCards.innerHTML = "";
     evidenceCardData.forEach(evidence => {
         const date = new Date(evidence.date).toLocaleDateString('en-US', {
@@ -78,15 +76,18 @@ function renderEvidences(){
         <div class="card-cta">
             <a href="evidence/hornback-case.html" class="btn-ev-readmore">Read More →</a>
             <button class="read"><i class="fa-brands fa-readme"></i> Read Online</button>
+            <a class="download btn-ev-download" download>Download</a> 
         </div>
-        <button class="read-more" id="readMoreBtn">Read More</button>`;
+        <button class="read-more readMoreBtn">Read More</button>`;
         evidenceCards.appendChild(card);
         const downloadBtn = card.querySelector('.download');
-        downloadBtn.href = evidence.downloadUrl;
-        downloadBtn.setAttribute('download', '');
+        if (downloadBtn) {
+            downloadBtn.href = evidence.downloadUrl;
+            downloadBtn.setAttribute('download', '');
+        }
         card.querySelector('.read').addEventListener('click', () => window.open(evidence.readUrl, '_blank'));
-        
-        readMoreBtn.addEventListener('click', () => {
+            const readMoreBtn = card.querySelector('.readMoreBtn');
+            readMoreBtn.addEventListener('click', () => {
             readMorePopup.classList.add('show');
             const readmoreWrapper = document.createElement('div');
             readmoreWrapper.className = "readmore-wrapper";
@@ -147,6 +148,16 @@ function renderEvidences(){
             }
             readMorePopup.innerHTML = "";
             readMorePopup.appendChild(readmoreWrapper);
+            const readMoreDownloadBtn = readmoreWrapper.querySelector('.readmore-download');
+            if (readMoreDownloadBtn) {
+                readMoreDownloadBtn.addEventListener('click', () => {
+                    const a = document.createElement('a');
+                    a.href = evidence.downloadUrl;
+                    a.setAttribute('download', '');
+                    a.click();
+                });
+            }
         });
     });
+    documentNames = document.querySelectorAll('.evidence-cards-heading');
 };
