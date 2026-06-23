@@ -5,7 +5,6 @@ const evidenceCards = document.querySelector('.evidence-cards');
 const readMorePopup = document.querySelector('.readmore-popup');
 let documentNames = [];
 let documentsVisible = [];
-const API_URL = "https://breakingsilencepress-webgithubio-production.up.railway.app";
 evidenceCardData = [];
 
 getEvidences();
