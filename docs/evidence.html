@@ -740,9 +740,6 @@ footer {
 
 <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<script>
-  const API_URL = "https://breakingsilencepress-webgithubio-production.up.railway.app";
-</script>
 <script src="./js/evidence.js"></script>
 <script>
 const bar = document.getElementById('progress-bar');
@@ -796,27 +793,18 @@ chapterFilter.addEventListener('change', filterCards);
 
 /* READ MORE POPUP */
 function openReadMore(evidence) {
-  document.getElementById('rmBadge').textContent = evidence.fileType || 'DOC';
-  document.getElementById('rmTitle').textContent = evidence.heading;
-  document.getElementById('rmSource').textContent = evidence.source;
-  document.getElementById('rmFileType').textContent = evidence.fileType;
-  document.getElementById('rmDownloadDate').textContent = evidence.downloadDate;
-  document.getElementById('rmCopyright').textContent = evidence.copyRightStatus;
-  document.getElementById('rmUrl').textContent = evidence.originalUrl;
-  document.getElementById('rmDesc').textContent = evidence.moreDescription;
-  document.getElementById('rmRelevance').textContent = evidence.relevance;
-document.getElementById('rmDownloadBtn').onclick = () => {
-    const url = evidence.downloadUrl;
-    const fullUrl = url.startsWith('./') 
-        ? `https://breakingsilencepress-web.github.io/${url.slice(2)}`
-        : url;
-    const a = document.createElement('a');
-    a.href = `${API_URL}/download?url=${encodeURIComponent(fullUrl)}&filename=${encodeURIComponent(fullUrl.split('/').pop())}`;
-    a.target = '_blank';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-};
+  document.getElementById('rmBadge').textContent = evidence.type || 'DOC';
+  document.getElementById('rmTitle').textContent = evidence.title;
+  document.getElementById('rmSource').textContent = evidence.source || '—';
+  document.getElementById('rmFileType').textContent = 'PDF';
+  document.getElementById('rmDownloadDate').textContent = evidence.date || '—';
+  document.getElementById('rmCopyright').textContent = evidence.copyright || '—';
+  document.getElementById('rmUrl').textContent = evidence.originalUrl || '—';
+  document.getElementById('rmDesc').textContent = evidence.description || '—';
+  document.getElementById('rmRelevance').textContent = evidence.relevance || '—';
+  document.getElementById('rmDownloadBtn').onclick = () => {
+    window.open(evidence.downloadUrl, '_blank');
+  };
   document.getElementById('readmoreOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -833,52 +821,40 @@ document.getElementById('readmoreOverlay').addEventListener('click', function(e)
 /* FETCH + RENDER */
 async function getEvidences() {
   try {
-    const response = await fetch(`${API_URL}/evidences-public`);
-    const data = await response.json();
+    const response = await fetch('./evidence.json');
+    const evidences = await response.json();
     const grid = document.getElementById('evidenceGrid');
     grid.innerHTML = "";
-    if (!response.ok || !data.evidences.length) {
+    if (!evidences || !evidences.length) {
       grid.innerHTML = '<div class="empty-state"><div class="empty-state-icon">◻</div><div class="empty-state-text">No documents available yet.</div></div>';
       return;
     }
-    resultCount.textContent = data.evidences.length;
-    data.evidences.forEach((evidence, i) => {
-      const date = new Date(evidence.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    resultCount.textContent = evidences.length;
+    evidences.forEach((evidence, i) => {
       const card = document.createElement('div');
       card.className = `evidence-card reveal reveal-delay-${(i % 4) + 1}`;
       card.dataset.chapter = evidence.chapter;
       card.innerHTML = `
-        <div class="evidence-type-badge">${evidence.fileType || 'DOC'}</div>
+        <div class="evidence-type-badge">${evidence.type || 'DOC'}</div>
         <div class="evidence-info">
           <div class="evidence-chapter-tag">${evidence.chapter}</div>
-          <div class="evidence-title">${evidence.heading}</div>
-          <div class="evidence-meta">${date}</div>
+          <div class="evidence-title">${evidence.title}</div>
+          <div class="evidence-meta">${evidence.date}</div>
           <div class="evidence-desc">${evidence.description}</div>
           <div class="evidence-actions">
-            <button class="btn-evidence btn-ev-primary" data-download="${evidence.downloadUrl}" data-filename="${evidence.heading}">↓ Download PDF</button>
-            <a href="${evidence.readUrl}" target="_blank" class="btn-evidence btn-ev-ghost">↗ Read Online</a>
-            <button class="btn-ev-readmore">Read More →</button>
+            <a href="${evidence.downloadUrl}" target="_blank" class="btn-evidence btn-ev-primary">↓ Download PDF</a>
+            <a href="${evidence.originalUrl}" target="_blank" class="btn-evidence btn-ev-ghost">↗ Read Online</a>
+            <button class="btn-ev-readmore">Close ×</button>
           </div>
         </div>`;
       grid.appendChild(card);
       observer.observe(card);
       card.querySelector('.btn-ev-readmore').addEventListener('click', () => openReadMore(evidence));
-      card.querySelector('[data-download]').addEventListener('click', function() {
-        const url = this.dataset.download;
-        const filename = this.dataset.filename;
-        const fullUrl = url.startsWith('./') 
-            ? `https://breakingsilencepress-web.github.io/${url.slice(2)}`
-            : url;
-        const a = document.createElement('a');
-           a.href = `${API_URL}/download?url=${encodeURIComponent(fullUrl)}&filename=${encodeURIComponent(fullUrl.split('/').pop())}`;
-        a.target = '_blank';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    });        
     });
   } catch(err) {
     console.log("Evidence load error: " + err.message);
+    const grid = document.getElementById('evidenceGrid');
+    grid.innerHTML = '<div class="empty-state"><div class="empty-state-icon">◻</div><div class="empty-state-text">Error loading documents. Please try again.</div></div>';
   }
 }
 
